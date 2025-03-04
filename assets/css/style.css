@@ -1,41 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap');
+
+:root {
+    --primary-inactive: #DA251D;
+    --primary-hover: #ED928E;
+    --secondairy-inactive: #FFCC00;
+    --secondairy-hover: #FAECB3;
+    --tertairy-inactive: #006A4E;
+    --tertairy-hover: #00D69D;
+    --bg-default: #F5E6CC;
+    --bg-white: #FBFBFB;
+}
+
 html {
-    
+    font-family: "Baloo Da 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {
     font-size: 14pt;
-    font-family: 'Arial', sans-serif;
     color: #333;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
+/* Header */
 header {
-    background: #333;
-    color: #fff;
-    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-white);
+    color: var(--secondairy-inactive);
+    padding: 0 20px;
     min-height: 70px;
-    border-bottom: #333 solid 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
     padding: 0;
     font-size: 24pt;
-    font-family: 'Arial', sans-serif;
     font-weight: bold;
     text-align: center;
-}
-
-nav {
-    float: right;
 }
 
 nav ul {
@@ -49,14 +57,15 @@ nav ul li {
 }
 
 nav a {
-    color: #fff;
+    color: var(--secondairy-inactive);
     text-decoration: none;
     padding: 10px 15px;
     display: inline-block;
 }
 
 nav a:hover {
-    background-color: #333;
+    text-decoration: underline;
+    color: var(--primary-hover);
 }
 
 nav ul li a {
@@ -67,17 +76,47 @@ nav ul li:first-child a {
     border-left: none;
 }
 
-section {
-    float: left;
-    width: 70%;
+/* Banner */
+.banner {
+    background: url('../img/banner.jpg') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-inactive);
+    text-align: center;
 }
 
-aside {
-    float: right;
-    width: 30%;
-    background: #333;
-    color: #fff;
-    padding: 10px;
+.banner h1 {
+    font-size: 48pt;
+    margin: 0;
+    padding: 0;
+}
+
+.banner p {
+    font-size: 18pt;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main */
+main {
+    background-color: var(--bg-white);
+    padding: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main .villas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+main .villas div {
+    background-color: var(--bg-default);
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 footer {
@@ -85,9 +124,6 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 .clearfix::after {

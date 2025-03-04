@@ -9,7 +9,7 @@ class Villas {
     }
 
     public function getVillas() {
-        $sql = "SELECT * FROM villas";
+        $sql = "SELECT * FROM villa";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
