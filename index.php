@@ -17,7 +17,7 @@
                 $villas = $villa->getVillas();
                 foreach ($villas as $villa) {
                     echo '<div class="villa">';
-                    echo '<img src="images/' . $villa->image . '" alt="' . $villa->name . '">';
+                    echo '<img src="/assets/img/villa/' . $villa->image . '" alt="' . $villa->name . '">';
                     echo '<h3>' . $villa->name . '</h3>';
                     echo '<p>' . $villa->desc . '</p>';
                     echo '<a href="villa.php?id=' . $villa->id . '">More information</a>';

@@ -15,4 +15,11 @@ class Villas {
         return $stmt->fetchAll();
     }
 
+    public function getVilla($id) {
+        $sql = "SELECT * FROM villa WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch();
+    }
+
 }
