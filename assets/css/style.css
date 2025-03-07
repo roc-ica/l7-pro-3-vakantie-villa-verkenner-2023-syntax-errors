@@ -36,7 +36,7 @@ header {
     align-items: center;
     background-color: var(--bg-white);
     color: var(--secondairy-inactive);
-    padding: 0 20px;
+    padding: 0 40px;
     min-height: 70px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -58,7 +58,6 @@ header a {
 
 header a img {
     height: 50px;
-    border-radius: 50%;
 }
 
 nav ul {
@@ -122,7 +121,7 @@ nav ul li:first-child a {
 /* Main */
 main {
     background-color: var(--bg-white);
-    padding: 20px;
+    padding: 20px 40px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 

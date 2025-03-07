@@ -14,11 +14,25 @@
         </section>
 
         <main id="villa">
-            <h2><?= $villa->name; ?></h2>
-            <img src="/assets/img/villa/<?= $villa->image; ?>" alt="<?= $villa->name; ?>">
-            <p><?= $villa->desc; ?></p>
-            <p>Price: &euro;<?= $villa->price; ?> per night</p>
-            <a href="contact.php">Book now</a>
+            <section class="villa">
+                <div class="images">
+
+                </div>
+                <div class="booking">
+
+                </div>
+            </section>
+            <section class="content">
+                <h2>Details</h2>
+                <p><?= $villa->desc; ?></p>
+                <h2>Facilities</h2>
+                <ul>
+                    <?php foreach ($options as $facility) { ?>
+                        <li><?= $facility->name; ?></li>
+                    <?php } ?>
+                </ul>
+            </section>
+
             <button onclick="printPdf('/pdf.php?id=<?= $_GET['id'] ?>')">Print</button>
         </main>
     <?php } ?>

@@ -6,3 +6,5 @@ spl_autoload_register(function ($class) {
 
 $database = new Database();
 $villa = new Villas();
+$eigenschappen = new Eigenschappen();
+$liggingsopties = new Liggingsopties();
