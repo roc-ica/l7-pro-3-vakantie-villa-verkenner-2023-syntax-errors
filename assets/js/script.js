@@ -1,19 +1,19 @@
 
 // Print PDF
-printPdf = function (url) {
-    var iframe = this._printIframe;
-    if (!this._printIframe) {
-      iframe = this._printIframe = document.createElement('iframe');
-      document.body.appendChild(iframe);
-  
-      iframe.style.display = 'none';
-      iframe.onload = function() {
-        setTimeout(function() {
-          iframe.focus();
-          iframe.contentWindow.print();
-        }, 1);
-      };
-    }
-    
-    iframe.src = '/includes' + url;
-};
+function printPDF(url) {
+  const { jsPDF } = window.jspdf;
+
+  // html2canvas(document.getElementById("content")).then(canvas => {
+  //     const imgData = canvas.toDataURL("image/png");
+  //     const pdf = new jsPDF();
+  //     pdf.addImage(imgData, "PNG", 10, 10, 180, 160);
+  //     pdf.save("export.pdf");
+  // });
+
+  html2canvas(document.body).then(canvas => {
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF();
+    pdf.addImage(imgData, "PNG", 10, 10, 180, 160);
+    pdf.save("export.pdf");
+  });
+}

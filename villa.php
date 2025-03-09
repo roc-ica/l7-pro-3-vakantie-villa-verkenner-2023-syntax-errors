@@ -27,13 +27,13 @@
                 <p><?= $villa->desc; ?></p>
                 <h2>Facilities</h2>
                 <ul>
-                    <?php foreach ($options as $facility) { ?>
+                    <?php foreach ($options->getEigenschappenByVilla($_GET['id']) as $facility) { ?>
                         <li><?= $facility->name; ?></li>
                     <?php } ?>
                 </ul>
             </section>
 
-            <button onclick="printPdf('/pdf.php?id=<?= $_GET['id'] ?>')">Print</button>
+            <button onclick="generatePDF()">Print</button>
         </main>
     <?php } ?>
     <?php include 'sections/footer.php'; ?>

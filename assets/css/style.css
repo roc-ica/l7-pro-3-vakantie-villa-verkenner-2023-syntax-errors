@@ -14,8 +14,12 @@
     --border-radius: 8px;
 }
 
+* {
+    font-family: "Baloo Da 2", sans-serif !important;
+}
+
 html {
-    font-family: "Baloo Da 2", sans-serif;
+    font-family: "Baloo Da 2", sans-serif !important;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -28,6 +32,19 @@ body {
     margin: 0;
     padding: 0;
 }
+
+@media print {
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap');
+
+    * {
+        font-family: "Baloo Da 2", sans-serif !important;
+    }
+
+    body {
+        font-family: "Baloo Da 2", sans-serif !important;
+    }
+}
+
 
 /* Header */
 header {

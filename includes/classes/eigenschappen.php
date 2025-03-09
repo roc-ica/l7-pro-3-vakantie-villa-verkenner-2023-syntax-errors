@@ -23,7 +23,7 @@ class Eigenschappen {
     }
 
     public function getEigenschappenByVilla($villa_id) {
-        $sql = "SELECT * FROM villaEigenschappen WHERE villa_id = :villa_id";
+        $sql = "SELECT * FROM villaEigenschappen WHERE `villa.id` = :villa_id";
         $sql2 = "SELECT * FROM eigenschappen WHERE id = :id";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute(['villa_id' => $villa_id]);
@@ -31,7 +31,7 @@ class Eigenschappen {
         $result = [];
         foreach ($eigenschappen as $eigenschap) {
             $stmt = $this->db->pdo->prepare($sql2);
-            $stmt->execute(['id' => $eigenschap->eigenschap_id]);
+            $stmt->execute(['id' => $eigenschap->{'eigenschap.id'}]);
             $result[] = $stmt->fetch();
         }
         return $result;
