@@ -1,16 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap');
 
 :root {
-    --primary-inactive: #DA251D;
-    --primary-hover: #ED928E;
-    --secondairy-inactive: #FFCC00;
-    --secondairy-hover: #FAECB3;
-    --tertairy-inactive: #006A4E;
-    --tertairy-hover: #00D69D;
+    /* colors */
+    --primary-default: #DA251D;
+    --primary-hover: #A5342F;
+    --primary-inactive: #EB7A75;
+    --secondairy-default: #FFCC00;
+    --secondairy-hover: #C5A527;
+    --secondairy-inactive: #E1D08A;
+    --tertairy-default: #006A4E;
+    --tertairy-hover: #183930;
+    --tertairy-inactive: #4EAC93;
     --bg-default: #F5E6CC;
     --bg-white: #FBFBFB;
-
-    /*  */
+    --text-primary: #fff;
+    --text-secondairy: #000;
+    --text-tertairy: #DA251D;
+    /* misc */
     --border-radius: 8px;
 }
 
@@ -88,23 +94,24 @@ nav ul li {
 }
 
 nav a {
-    color: var(--secondairy-inactive);
+    color: black;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     text-decoration: none;
     padding: 10px 15px;
     display: inline-block;
 }
 
 nav a:hover {
+    text-decoration: none;
+    color: var(--tertairy-hover);
+    text-shadow: none;
+    font-weight: bold;
+}
+
+nav a.active {
+    color: var(--tertairy-inactive);
+    text-shadow: none;
     text-decoration: underline;
-    color: var(--primary-hover);
-}
-
-nav ul li a {
-    border-right: #fff solid 1px;
-}
-
-nav ul li:first-child a {
-    border-left: none;
 }
 
 /* Banner */
