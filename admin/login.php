@@ -5,13 +5,9 @@
 <?php include '../includes/head.php'; ?>
 <body>
 
-    <?php 
-    
-    if (isset($_POST['email']) && isset($_POST['password'])) {
+    <?php if (isset($_POST['email']) && isset($_POST['password'])) {
         $admin->login($_POST);
-    }
-
-    ?>
+    } ?>
 
     <h1>Login</h1>
     <form action="/admin/" method="post">
