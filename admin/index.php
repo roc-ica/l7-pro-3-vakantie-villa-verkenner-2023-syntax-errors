@@ -1,4 +1,4 @@
-<?php include 'includes/data.php'; ?>
+<?php include '../includes/data.php'; ?>
 <?php Session::CheckSession(); ?>
 <!DOCTYPE html>
 <html lang="nl">
