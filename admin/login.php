@@ -10,7 +10,7 @@
     } ?>
 
     <h1>Login</h1>
-    <form action="/admin/" method="post">
+    <form action="" method="post">
         <input type="text" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
         <button type="submit">Login</button>

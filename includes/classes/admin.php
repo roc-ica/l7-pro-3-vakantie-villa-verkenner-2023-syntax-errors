@@ -16,9 +16,8 @@ class Admin {
         if ($input['email'] == $email && $input['password'] == $password) {
             Session::set('login', true);
             Session::set('id', 1);
-            header('Location: /admin/');
         } else {
-            header('Location: /admin/login.php');
+            echo "Login failed";
         }
     }
 
