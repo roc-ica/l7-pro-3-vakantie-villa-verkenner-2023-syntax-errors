@@ -1,25 +1,25 @@
 <?php
 
 class Admin {
-    private $username = "admin";
-    private $password = "password";
+    
+    private $db;
 
-    public function login($inputUsername, $inputPassword) {
-        if ($inputUsername === $this->username && $inputPassword === $this->password) {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['username'] = $this->username;
-            return true;
+    public function __construct()
+    {
+        $this->db = new Database();
+    }
+
+    public function login($input) {
+        $email = "VillaAdmin";
+        $password = "VA1234";
+        
+        if ($input['email'] == $email && $input['password'] == $password) {
+            Session::set('login', true);
+            Session::set('id', 1);
+            header('Location: /admin/');
         } else {
-            return false;
+            header('Location: /admin/login.php');
         }
     }
 
-    public function logout() {
-        session_unset();
-        session_destroy();
-    }
-
-    public function isLoggedIn() {
-        return isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
-    }
 }

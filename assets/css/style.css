@@ -1,18 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap');
-
 :root {
     /* colors */
     --primary-default: #DA251D;
     --primary-hover: #A5342F;
     --primary-inactive: #EB7A75;
+
     --secondairy-default: #FFCC00;
     --secondairy-hover: #C5A527;
     --secondairy-inactive: #E1D08A;
+
     --tertairy-default: #006A4E;
     --tertairy-hover: #183930;
     --tertairy-inactive: #4EAC93;
+
     --bg-default: #F5E6CC;
     --bg-white: #FBFBFB;
+
     --text-primary: #fff;
     --text-secondairy: #000;
     --text-tertairy: #DA251D;
@@ -21,12 +23,11 @@
 }
 
 * {
-    font-family: "Baloo Da 2", sans-serif !important;
+    font-family: "Katibeh", serif;
 }
 
 html {
-    font-family: "Baloo Da 2", sans-serif !important;
-    font-optical-sizing: auto;
+    font-family: "Katibeh", serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -37,157 +38,4 @@ body {
     background-color: var(--bg-white);
     margin: 0;
     padding: 0;
-}
-
-@media print {
-    @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap');
-
-    * {
-        font-family: "Baloo Da 2", sans-serif !important;
-    }
-
-    body {
-        font-family: "Baloo Da 2", sans-serif !important;
-    }
-}
-
-
-/* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--bg-white);
-    color: var(--text-secondairy);
-    padding: 0 40px;
-    min-height: 70px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 24pt;
-    font-weight: bold;
-    text-align: center;
-}
-
-header a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-header a img {
-    height: 50px;
-}
-
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav a {
-    color: black;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    text-decoration: none;
-    padding: 10px 15px;
-    display: inline-block;
-}
-
-nav a:hover {
-    text-decoration: none;
-    color: var(--tertairy-hover);
-    text-shadow: none;
-    font-weight: bold;
-}
-
-nav a.active {
-    color: var(--tertairy-inactive);
-    text-shadow: none;
-    text-decoration: underline;
-}
-
-/* Banner */
-.banner {
-    background: url('../img/banner.jpg') no-repeat center center/cover;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-primary);
-    text-align: center;
-}
-
-.villa .banner {
-    height: 300px;
-}
-
-.banner h1 {
-    font-size: 48pt;
-    margin: 0;
-    padding: 0;
-}
-
-.banner p {
-    font-size: 18pt;
-    margin: 0;
-    padding: 0;
-}
-
-/* Main */
-main {
-    background-color: var(--bg-white);
-    padding: 20px 40px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-main .villas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-main .villas div {
-    background-color: var(--bg-default);
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-main .villas div img {
-    width: 100%;
-    border-radius: var(--border-radius);
-}
-
-main .villas div h3 {
-    margin: 0;
-    padding: 0;
-    font-size: 18pt;
-}
-
-main .villas div p {
-    margin: 0;
-    padding: 0;
-    font-size: 14pt;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-}
-
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
 }

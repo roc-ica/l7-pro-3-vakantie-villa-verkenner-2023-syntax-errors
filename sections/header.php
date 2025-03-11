@@ -1,7 +1,4 @@
-<?php
-$currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), ".php");
-$active = 'class="active"';
-?>
+<?php $currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), ".php"); $active = 'class="active"'; ?>
 <header>
     <a href="/">
         <img src="/assets/img/logo.svg" alt="Vakantie Villa">
