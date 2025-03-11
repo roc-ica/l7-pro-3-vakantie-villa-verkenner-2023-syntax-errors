@@ -1,0 +1,15 @@
+services:
+  web:
+    image: php:apache
+    restart: always
+    environment:
+      MYSQL_HOST: db.server.harmfennis.nl
+      MYSQL_USER: vk_villa_user
+      MYSQL_PASSWORD: 13VaF342xu7A
+      MYSQL_DATABASE: VakantieVilla
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+    command: >
+      bash -c "docker-php-ext-install pdo pdo_mysql && apache2-foreground && zip && unzip"

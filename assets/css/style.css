@@ -1,0 +1,41 @@
+:root {
+    /* colors */
+    --primary-default: #DA251D;
+    --primary-hover: #A5342F;
+    --primary-inactive: #EB7A75;
+
+    --secondairy-default: #FFCC00;
+    --secondairy-hover: #C5A527;
+    --secondairy-inactive: #E1D08A;
+
+    --tertairy-default: #006A4E;
+    --tertairy-hover: #183930;
+    --tertairy-inactive: #4EAC93;
+
+    --bg-default: #F5E6CC;
+    --bg-white: #FBFBFB;
+
+    --text-primary: #fff;
+    --text-secondairy: #000;
+    --text-tertairy: #DA251D;
+    /* misc */
+    --border-radius: 8px;
+}
+
+* {
+    font-family: "Katibeh", serif;
+}
+
+html {
+    font-family: "Katibeh", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-size: 14pt;
+    color: var(--text-secondairy);
+    background-color: var(--bg-white);
+    margin: 0;
+    padding: 0;
+}
