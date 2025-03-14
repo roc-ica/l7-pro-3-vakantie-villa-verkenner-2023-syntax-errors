@@ -22,4 +22,17 @@ class Villas {
         return $stmt->fetch();
     }
 
+    public function getVillaImages($id) {
+        $sql = "SELECT * FROM villaImages WHERE villa = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetchAll();
+    }
+    
+    public function getPrimaryImage($id) {
+        $sql = "SELECT image FROM villaImages WHERE villa = :id AND `primary` = 1";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetchColumn();
+    }
 }
