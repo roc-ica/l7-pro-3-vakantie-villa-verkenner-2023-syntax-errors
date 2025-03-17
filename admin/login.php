@@ -1,20 +1,26 @@
-<?php include '../includes/data.php'; ?>
-<?php Session::CheckLogin(); ?>
+<?php
+include '../includes/data.php';
+Session::CheckLogin();
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $admin->login($_POST);
+    header('Location: /admin');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <?php include '../includes/head.php'; ?>
-<body>
 
-    <?php if (isset($_POST['email']) && isset($_POST['password'])) {
-        $admin->login($_POST);
-    } ?>
-
-    <h1>Login</h1>
+<body class="login">
     <form action="" method="post">
-        <input type="text" name="email" placeholder="Email">
+        <h1>Login</h1>
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Username">
+        <label for="password">Password</label>
         <input type="password" name="password" placeholder="Password">
         <button type="submit">Login</button>
     </form>
-    
 </body>
+
 </html>

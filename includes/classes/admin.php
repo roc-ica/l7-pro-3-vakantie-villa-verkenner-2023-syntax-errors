@@ -10,10 +10,10 @@ class Admin {
     }
 
     public function login($input) {
-        $email = "VillaAdmin";
+        $username = "VillaAdmin";
         $password = "VA1234";
         
-        if ($input['email'] == $email && $input['password'] == $password) {
+        if ($input['username'] == $username && $input['password'] == $password) {
             Session::set('login', true);
             Session::set('id', 1);
         } else {
