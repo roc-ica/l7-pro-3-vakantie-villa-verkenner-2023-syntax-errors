@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
 
 <head>
     <meta charset="UTF-8">
-    <title><?= $villa->name; ?></title>
+    <title><?= $villa->name; ?></title> 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap');
 
