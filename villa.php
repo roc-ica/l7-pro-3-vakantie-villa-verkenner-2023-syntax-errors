@@ -4,7 +4,7 @@
 <?php include 'includes/head.php'; ?>
 
 <body class="villa">
-    <?php include 'sections/header.php'; ?>
+    <?php include 'sections/navigation.php'; ?>
 
     <?php if (!isset($_GET['id'])): ?>
         <?php $villas = $villa->getVillas(); ?>

@@ -1,0 +1,10 @@
+{
+  "require": {
+    "scssphp/scssphp": "^2.0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
