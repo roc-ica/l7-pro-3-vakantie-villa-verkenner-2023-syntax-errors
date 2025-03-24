@@ -1,6 +1,8 @@
 <?php
 $villaDetail = $villa->getVilla($_GET['id']);
 $villaImages = $villa->getVillaImages($_GET['id']);
+$villaEigenschappen = $villa->getVillaEigenschappen($_GET['id']);
+// $villaOpties = $villa->getVillaOpties($_GET['id']);
 
 if (!$villaDetail) {
     echo "<p style='padding:20px;'>Villa niet gevonden.</p>";
@@ -8,11 +10,11 @@ if (!$villaDetail) {
     $primaryImage = array_filter($villaImages, fn($img) => $img["primary"] == 1);
     $primaryImage = reset($primaryImage);
     $thumbnailImages = array_filter($villaImages, fn($img) => $img["primary"] == 0);
-    ?>
+?>
 
     <div class="max-w-7xl mx-auto py-10 px-4 flex flex-col md:flex-row gap-6">
         <!-- Linkerkant -->
-        <div class="w-full md:w-2/3">
+        <div class="w-full md:w-2/4">
             <?php if ($primaryImage): ?>
                 <img src="assets/img/villa/<?= htmlspecialchars($primaryImage['image']) ?>"
                     alt="<?= htmlspecialchars($villaDetail['name']) ?>"
@@ -21,7 +23,7 @@ if (!$villaDetail) {
                 <p class="text-red-500">Geen afbeelding beschikbaar</p>
             <?php endif; ?>
 
-            <!-- ✅ Thumbnail Slider -->
+            <!-- Slider -->
             <div class="max-w-6xl mx-auto">
                 <h3 class="text-lg font-semibold text-gray-700 text-center mb-3">Meer Afbeeldingen</h3>
                 <div class="owl-carousel owl-theme">
@@ -37,7 +39,7 @@ if (!$villaDetail) {
         </div>
 
         <!-- ✅ Rechterkant -->
-        <div class="w-full md:w-1/3 space-y-4">
+        <div class="w-full md:w-2/4 space-y-4">
             <h1 class="text-3xl font-bold text-gray-900"><?= htmlspecialchars($villaDetail['name']) ?></h1>
             <p class="text-gray-600"><?= htmlspecialchars($villaDetail['desc']) ?></p>
 
@@ -47,10 +49,37 @@ if (!$villaDetail) {
                 <li>🏡 Te koop: <?= $villaDetail['forsale'] ? 'Ja' : 'Nee' ?></li>
             </ul>
 
-            <p class="text-2xl font-semibold text-red-500">€ <?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></p>
-            <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
-                Contacteer ons nu!
-            </button>
+            <br>
+
+            <ul class="list-disc list-inside text-gray-700">
+                <?php if (!empty($villaEigenschappen)): ?>
+                    <?php foreach ($villaEigenschappen as $eigenschap): ?>
+                        <li>✅ <?= htmlspecialchars($eigenschap['name']) ?></li>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <li class="text-gray-500">Geen eigenschappen beschikbaar</li>
+                <?php endif; ?>
+            </ul>
+
+            <!-- opties -->
+
+            <!-- <ul class="list-disc list-inside text-gray-700">
+                <?php if (!empty($villaOpties)): ?>
+                    <?php foreach ($villaOpties as $optie): ?>
+                        <li>✅ <?= htmlspecialchars($optie['name']) ?></li>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <li class="text-gray-500">Geen opties beschikbaar</li>
+                <?php endif; ?>
+            </ul> -->
+
+
+            <div class="flex justify-between items-center">
+                <p class="text-2xl font-semibold text-red-500">€ <?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></p>
+                <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+                    Contacteer ons nu!
+                </button>
+            </div>
         </div>
     </div>
 
