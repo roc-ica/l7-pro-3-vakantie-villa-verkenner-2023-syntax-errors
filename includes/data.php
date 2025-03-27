@@ -12,7 +12,7 @@ $database = new Database();
 $villa = new Villas();
 $options = new Eigenschappen();
 $liggingsopties = new Liggingsopties();
-
+$contact = new Contact();
 $admin = new Admin();
 
 Session::init();
