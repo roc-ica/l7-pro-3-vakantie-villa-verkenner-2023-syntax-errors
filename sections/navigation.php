@@ -1,5 +1,5 @@
 <?php $currentPage = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), ".php"); $active = 'class="active"'; ?>
-<header>
+<header class="navigation">
     <a href="/">
         <img src="/assets/img/logo.svg" alt="Vakantie Villa">
     </a>

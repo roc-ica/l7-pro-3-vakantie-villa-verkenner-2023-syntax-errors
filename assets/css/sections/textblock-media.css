@@ -1,0 +1,17 @@
+.textblock-media {
+  display: grid;
+  grid-column: 2/-2;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: subgrid;
+}
+.textblock-media .textblock-media__container {
+  display: grid;
+  grid-column: 2/-2;
+  grid-template-columns: subgrid;
+}
+.textblock-media .textblock-media__container .textblock-media__content {
+  grid-column: 1/6;
+}
+.textblock-media .textblock-media__container .textblock-media__media {
+  grid-column: 6/12;
+}

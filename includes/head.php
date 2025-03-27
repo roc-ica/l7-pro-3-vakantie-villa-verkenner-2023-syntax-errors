@@ -11,6 +11,10 @@
         rel="stylesheet">
 
     <!-- css -->
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/sections/header.css">
+    <link rel="stylesheet" href="/assets/css/sections/textblock-media.css">
     <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- script -->

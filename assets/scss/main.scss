@@ -1,0 +1,21 @@
+:root {
+    --container-min-space: 1rem;
+    --container-columns: 12;
+    --container-width: 83.75rem;
+    --container-gutter: 1rem;
+}
+
+#site-content {
+    display: grid;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    grid-template-columns:
+    minmax(var(--container-min-space, 1rem), 1fr)
+    repeat(var(--container-columns, 12), minmax(0, var(--container-column-width)))
+    minmax(var(--container-min-space, 1rem), 1fr);
+    column-gap: var(--container-gutter, 1rem);
+    --container-column-width: calc(
+            (var(--container-width, 83.75rem) - var(--container-gutter, 1rem) * (var(--container-columns, 12) - 1)) /
+            var(--container-columns, 12)
+    );
+}
