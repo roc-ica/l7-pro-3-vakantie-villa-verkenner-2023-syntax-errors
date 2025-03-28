@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="naam" placeholder="Naam*" class="w-full p-2 mb-3 border rounded" required>
             <input type="email" name="email" placeholder="E-mail*" class="w-full p-2 mb-3 border rounded" required>
             <input type="hidden" name="villa" value="<?= $villa_id ?>">
-            <p class="text-gray-700 text-sm">Villa ID: <?= $villa_id ?></p>
+            <p class="text-gray-700 text-sm">Villa ID: <?= $_GET['id'] ?></p>
             <textarea name="vraag" placeholder="Jouw vraag*" class="w-full p-2 mb-3 border rounded" required></textarea>
             <button type="submit" class="w-full p-3 bg-red-600 text-white rounded">VERZENDEN</button>
         </form>

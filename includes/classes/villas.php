@@ -55,17 +55,17 @@ class Villas
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // public function getVillaOpties($villaId) {
-    //     $query = "
-    //         SELECT o.name 
-    //         FROM villaOpties vo
-    //         JOIN ligging_opties o ON vo.`ligging_optie_id` = o.id
-    //         WHERE vo.`villa_id` = ?
-    //     ";
-    //     $stmt = $this->db->pdo->prepare($query);
-    //     $stmt->execute([$villaId]);
-    //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // }
+     public function getVillaOpties($villaId) {
+         $query = "
+             SELECT o.name 
+             FROM villaOpties vo
+             JOIN ligging_opties o ON vo.`ligging_optie_id` = o.id
+             WHERE vo.`villa_id` = ?
+         ";
+         $stmt = $this->db->pdo->prepare($query);
+         $stmt->execute([$villaId]);
+         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+     }
 
     
 }
