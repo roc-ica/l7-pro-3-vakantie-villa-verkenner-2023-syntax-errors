@@ -3,9 +3,9 @@
         <div class="header__heading">
             <div class="heading">
                 <div class="heading__content-wrapper">
-                    <h1 class="heading__title">We invest in the world’s potential</h1>
-                    <p class="heading__content">Here at Flowbite we focus on markets where technology, innovation, and
-                        capital can unlock long-term value and drive economic growth.</p>
+                    <h1 class="heading__title">Warining</h1>
+                    <p class="heading__content">Do not remove any code without consultation! Every issue must be discussed and
+                         attempted to be resolved collectively before taking drastic actions.</p>
                 </div>
                 <div class="button__group">
                     <a href="#" class="button --primary">
