@@ -11,6 +11,7 @@
         rel="stylesheet">
 
     <!-- css -->
+    <?php include "css_links.php";?>
     <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- script -->
