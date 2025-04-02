@@ -5,7 +5,20 @@
   grid-template-columns: subgrid;
 
 
-    .header__container {
-        grid-column: 1/-1;
+  .header__container {
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: subgrid;
+  }
+
+  .heading{
+    &__title{
+      font-size: 10.1875rem;
     }
+
+    &__content{
+      font-size: 2.875rem;
+    }
+  }
+
 }

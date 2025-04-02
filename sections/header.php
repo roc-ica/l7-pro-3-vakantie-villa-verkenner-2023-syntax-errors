@@ -3,11 +3,10 @@
         <div class="header__heading">
             <div class="heading">
                 <div class="heading__content-wrapper">
-                    <h1 class="heading__title">Warining</h1>
-                    <p class="heading__content">Do not remove any code without consultation! Every issue must be discussed and
-                         attempted to be resolved collectively before taking drastic actions.</p>
+                    <h1 class="heading__title">Vietnam</h1>
+                    <p class="heading__content">Onze mooiste villa’s zijn te koop</p>
                 </div>
-                <div class="button__group">
+                <div class="button --wrapper">
                     <a href="#" class="button --primary">
                         <span class="button__title">Get started</span>
                         <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
