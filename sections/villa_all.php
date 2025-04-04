@@ -27,6 +27,6 @@
 
 <?php else: ?>
 
-    
+    <?php include_once 'sections/villa_detail.php'; ?>
 
 <?php endif; ?>
