@@ -11,9 +11,8 @@
         rel="stylesheet">
 
     <!-- css -->
-    <link rel="stylesheet" href="/assets/css/style.css"> <!-- TEMP -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/sections/header.css">
-    <link rel="stylesheet" href="/assets/css/sections/textblock-media.css">
+    <?php
+     include 'css_links.php'
+    ?>
     
 </head>
