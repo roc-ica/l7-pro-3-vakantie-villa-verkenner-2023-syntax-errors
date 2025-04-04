@@ -4,7 +4,7 @@
 <?php include 'includes/head.php'; ?>
 <body>
     <?php include 'sections/navigation.php'; ?>
-    <?php include 'sections/banner.php'; ?>
+<!--    --><?php //include 'sections/banner.php'; ?>
     <main id="site-content">
         <?php include 'sections/header.php'; ?>
         

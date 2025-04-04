@@ -10,6 +10,8 @@
   );
   background-color: var(--bg-white);
   box-shadow: 0 0 10px rgba(30, 30, 30, 0.3294117647);
+  position: static;
+  min-block-size: 10vh;
 }
 .navigation__logo-container {
   display: flex;
@@ -19,11 +21,11 @@
   grid-row: 1;
   padding: 0.5rem 0;
   margin: 0 auto;
-  max-width: var(--container-width, 83.75rem);
-  width: 100%;
+  max-inline-size: var(--container-width, 83.75rem);
+  inline-size: 100%;
 }
 .navigation__logo-image img {
-  height: auto;
+  block-size: auto;
 }
 .navigation__menu {
   display: grid;

@@ -7,8 +7,9 @@
             </div>
             <div class="button__group">
                 <a href="#" class="button --primary">
-                    <span class="button__title">Get Explore all the Villas</span>
+                    <span class="button__title">Explore all the Villas</span>
                 </a>
             </div>
         </div>
+    </div>
 </section>
