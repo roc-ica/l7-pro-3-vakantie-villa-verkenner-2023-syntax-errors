@@ -18,4 +18,8 @@
             (var(--container-width, 83.75rem) - var(--container-gutter, 1rem) * (var(--container-columns, 12) - 1)) /
             var(--container-columns, 12)
     );
+
+    position: static;
+    min-block-size: 90vh;
+    max-block-size: 90vh;
 }
