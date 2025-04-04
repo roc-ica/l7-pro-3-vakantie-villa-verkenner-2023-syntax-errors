@@ -11,8 +11,6 @@
         rel="stylesheet">
 
     <!-- css -->
-    <?php
-     include 'css_links.php'
-    ?>
+    <?php include 'css_links.php' ?>
     
 </head>
