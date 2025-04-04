@@ -1,49 +1,59 @@
 .navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+  display: grid;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  grid-template-columns: minmax(var(--container-min-space, 1rem), 1fr) repeat(var(--container-columns, 12), minmax(0, var(--container-column-width))) minmax(var(--container-min-space, 1rem), 1fr);
+  column-gap: var(--container-gutter, 1rem);
+  --container-column-width: calc(
+          (var(--container-width, 83.75rem) - var(--container-gutter, 1rem) * (var(--container-columns, 12) - 1)) /
+          var(--container-columns, 12)
+  );
   background-color: var(--bg-white);
-  box-shadow: 0 0 10px #1e1e1e54;
+  box-shadow: 0 0 10px rgba(30, 30, 30, 0.3294117647);
 }
-
-.navigation a img {
+.navigation__logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 3/-11;
+  grid-row: 1;
+  padding: 0.5rem 0;
+  margin: 0 auto;
+  max-width: var(--container-width, 83.75rem);
+  width: 100%;
+}
+.navigation__logo-image img {
   height: auto;
 }
-
-.navigation nav a {
-  color: var(--text-secondairy);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease;
-  text-shadow: 0 0 5px var(--text-secondairy);
+.navigation__menu {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 11/-1;
+  gap: 1rem;
 }
-
-.navigation nav a:hover {
+.navigation__list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.navigation__item {
+  display: inline-block;
+}
+.navigation__link {
+  color: var(--tertairy-inactive);
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: underline;
+}
+.navigation__link:hover {
   color: var(--tertairy-default);
   box-shadow: none;
   font-weight: bold;
   border-radius: 5px;
 }
-
-.navigation nav a.active {
-    color: var(--tertairy-inactive);
-    font-weight: 400;
-    text-shadow: none;
-    text-decoration: underline;
-}
-
-.navigation nav {
-  display: flex;
-  gap: 1rem;
-}
-
-.navigation nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.navigation nav ul li {
-  display: inline-block;
+.navigation__link:active {
+  color: var(--tertairy-inactive);
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: underline;
 }
