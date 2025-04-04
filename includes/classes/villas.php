@@ -9,24 +9,24 @@ class Villas {
     }
 
     public function getVillas() {
-        $sql = "SELECT * FROM villa";
+        $sql = "SELECT * FROM villa WHERE is_deleted = 0";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getVilla($id) {
-        $sql = "SELECT * FROM villa WHERE id = :id";
+        $sql = "SELECT * FROM villa WHERE id = :id AND is_deleted = 0";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getVillaImages($id) {
         $sql = "SELECT * FROM villaImages WHERE villa = :id";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
     public function getPrimaryImage($id) {
@@ -35,4 +35,4 @@ class Villas {
         $stmt->execute(['id' => $id]);
         return $stmt->fetchColumn();
     }
-}
+}  

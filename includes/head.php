@@ -12,5 +12,4 @@
 
     <!-- css -->
     <?php include 'css_links.php' ?>
-    
 </head>
