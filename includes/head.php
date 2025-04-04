@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/assets/css/style.css"> <!-- TEMP -->
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/sections/navigation.css">
+    <link rel="stylesheet" href="/assets/css/sections/banner.css">
     <link rel="stylesheet" href="/assets/css/sections/footer.css">
     <link rel="stylesheet" href="/assets/css/sections/header.css">
     <link rel="stylesheet" href="/assets/css/sections/textblock-media.css">
