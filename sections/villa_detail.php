@@ -1,7 +1,7 @@
 <?php
 $villaDetail = $villa->getVilla($_GET['id']);
 $villaImages = $villa->getVillaImages($_GET['id']);
-$villaEigenschappen = $options->getEigenschap($_GET['id']);
+$villaEigenschappen = $options->getEigenschappenByVilla($_GET['id']);
 // $villaOpties = $villa->getVillaOpties($_GET['id']);
 
 if (!$villaDetail) {
@@ -35,7 +35,7 @@ if (!$villaDetail) {
     <ul>
         <?php if (!empty($villaEigenschappen)): ?>
             <?php foreach ($villaEigenschappen as $eigenschap): ?>
-                <li><?= htmlspecialchars($eigenschap)?></li>
+                <li><?= htmlspecialchars($eigenschap->name)?></li>
             <?php endforeach; ?>
         <?php else: ?>
             <li>Geen eigenschappen beschikbaar</li>
