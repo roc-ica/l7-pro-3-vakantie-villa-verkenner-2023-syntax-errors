@@ -21,4 +21,20 @@ class Liggingsopties {
         $stmt->execute(['id' => $id]);
         return $stmt->fetch();
     }
+
+    public function getliggingsoptiesByVilla($villa_id) {
+        $sql = "SELECT * FROM villaOpties WHERE `villa.id` = :villa_id";
+        $sql2 = "SELECT * FROM ligging_opties WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->execute(['villa_id' => $villa_id]);
+        $opties = $stmt->fetchAll();
+        $result = [];
+        foreach ($opties as $optie) {
+            $stmt = $this->db->pdo->prepare($sql2);
+            $stmt->execute(['id' => $optie->{'ligging.id'}]);
+            $result[] = $stmt->fetch();
+        }
+        return $result;
+    }
+
 }
