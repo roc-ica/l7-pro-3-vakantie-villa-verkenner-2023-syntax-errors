@@ -1,0 +1,29 @@
+:root {
+
+    /* grid-container-tokens */
+  --container-min-space: 1rem;
+  --container-columns: 12;
+  --container-width: 83.75rem;
+  --container-gutter: 1rem;
+  /* colors */
+  --primary-default: #DA251D;
+  --primary-hover: #A5342F;
+  --primary-inactive: #EB7A75;
+
+  --secondairy-default: #FFCC00;
+  --secondairy-hover: #C5A527;
+  --secondairy-inactive: #E1D08A;
+
+  --tertairy-default: #006A4E;
+  --tertairy-hover: #183930;
+  --tertairy-inactive: #4EAC93;
+
+  --bg-default: #F5E6CC;
+  --bg-white: #FBFBFB;
+
+  --text-primary: #fff;
+  --text-secondairy: #000;
+  --text-tertairy: #DA251D;
+  /* misc */
+  --border-radius: 0.08rem;
+}

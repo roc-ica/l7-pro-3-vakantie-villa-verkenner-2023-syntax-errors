@@ -13,7 +13,15 @@
   position: static;
   min-block-size: 10vh;
 }
-.navigation__logo-container {
+.navigation__container {
+  display: grid;
+  grid-column: 1/-1;
+  grid-template-columns: subgrid;
+  padding: 0.5rem 0;
+  max-inline-size: var(--container-width, 83.75rem);
+  inline-size: 100%;
+}
+__logo-container .navigation__logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
