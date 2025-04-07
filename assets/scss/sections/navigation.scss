@@ -22,13 +22,13 @@
     padding: 0.5rem 0;
     max-inline-size: var(--container-width, 83.75rem);
     inline-size: 100%;
-  }__logo-container
+  }
 
   &__logo-container{
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-column: 3/-11;
+    grid-column: 3/-9;
     grid-row: 1;
     padding: 0.5rem 0;
     margin: 0 auto;
@@ -37,7 +37,7 @@
   }
   &__logo-image {
     img {
-      block-size: auto;
+      block-size: 3rem;
     }
   }
 

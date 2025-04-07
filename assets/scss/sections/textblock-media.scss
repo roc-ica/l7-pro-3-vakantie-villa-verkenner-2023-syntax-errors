@@ -1,19 +1,40 @@
 .textblock-media {
   display: grid;
-  grid-column: 2/-2;
+  grid-column: 1/-1;
   grid-template-rows: repeat(4, auto);
   grid-template-columns: subgrid;
 
-  .textblock-media__container {
+  &__container {
     display: grid;
     grid-column: 2/-2;
     grid-template-columns: subgrid;
+  }
 
-    .textblock-media__content {
-      grid-column: 1/6
+  &__content {
+    grid-column: 2/7
+  }
+
+  &__media {
+    display: flex;
+    grid-column: 7/13;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image{
+    max-block-size: 35rem;
+    max-inline-size: 35rem;
+    inline-size: 100%;
+
+    img{
+      inline-size: inherit;
+      block-size: inherit;
     }
-    .textblock-media__media {
-      grid-column: 6/12;
+  }
+
+  &.__left{
+    .buttons{
+
     }
   }
 }
