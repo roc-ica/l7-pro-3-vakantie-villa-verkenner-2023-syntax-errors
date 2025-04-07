@@ -2,11 +2,13 @@
 <!DOCTYPE html>
 <html lang="nl">
 <?php include 'includes/head.php'; ?>
+
 <body>
     <?php include 'sections/navigation.php'; ?>
-    <main id="site-content">
-        
-    </main>
+
+    <?php include_once 'sections/villa_all.php'; ?>
+
     <?php include 'sections/footer.php'; ?>
 </body>
+
 </html>
