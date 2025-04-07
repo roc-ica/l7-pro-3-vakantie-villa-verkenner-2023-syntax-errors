@@ -1,0 +1,16 @@
+// make a mixin for buttons
+$color: #FFFFFF;
+$bg-color: #DA251D;
+
+@mixin button($color, $bg-color) {
+  color: $color;
+  background-color: $bg-color;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
