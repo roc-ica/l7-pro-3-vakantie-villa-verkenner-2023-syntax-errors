@@ -89,35 +89,49 @@ if (!$villaDetail) {
             </button>
         </div>
     </div>
+<!-- Contact Form Modal -->
+<div id="contactModal" class="modal-overlay">
+  <div class="modal-content">
+    <button id="closeModal" class="modal-close">&times;</button>
 
-    <!-- Contact Form Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
-            <button id="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl">&times;</button>
-            <h2 class="text-xl font-bold mb-2"><span class="text-black">Get in</span> <span class="text-red-600">Touch</span></h2>
-            <p class="text-sm text-gray-600 mb-4">Heb je vragen? Neem contact op en we reageren zo snel mogelijk!</p>
+    <!-- Modal Title -->
+    <h2 class="modal-title">
+      <span class="black">Get in</span> <span class="red">Touch</span>
+    </h2>
 
-         <!-- contact form -->
-            <form action="" method="POST">
-             <input type="text" name="naam" placeholder="Naam*" class="w-full p-2 mb-3 border rounded" required>
-             <input type="email" name="email" placeholder="E-mail*" class="w-full p-2 mb-3 border rounded" required>
-             <input type="hidden" name="villa" value="<?= $villa_id ?>">
-             <p class="text-gray-700 text-sm">Villa ID: <?= $_GET['id'] ?></p>
-             <textarea name="vraag" placeholder="Jouw vraag*" class="w-full p-2 mb-3 border rounded" required></textarea>
-             <button type="submit" class="w-full p-3 bg-red-600 text-white rounded">VERZENDEN</button>
-         </form>
-        </div>
-    </div>
+    <!-- Subtitle -->
+    <p class="modal-subtitle">
+      Have more questions? want to know if something is available?<br>
+      Feel free to contact us and we'll get back to you as soon as possible!
+    </p>
 
-    <!-- Modal Script -->
-    <script>
-        document.getElementById("openModal").addEventListener("click", function () {
-            document.getElementById("contactModal").classList.remove("hidden");
-        });
+    <?php if (!empty($message)) echo $message; ?>
 
-        document.getElementById("closeModal").addEventListener("click", function () {
-            document.getElementById("contactModal").classList.add("hidden");
-        });
-    </script>
+    <!-- Contact Form -->
+    <form action="" method="POST">
+      <input type="text" name="naam" placeholder="Name *" class="form-input" required>
+      <input type="email" name="email" placeholder="Email*" class="form-input" required>
+      <p class="villa-id">Villa ID: <?= $_GET['id'] ?></p>
+      <textarea name="vraag" placeholder="Your question*" class="form-textarea" required></textarea>
+      <button type="submit" class="form-button">Send</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Modal Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const openBtn = document.getElementById("openModal");
+        const closeBtn = document.getElementById("closeModal");
+        const modal = document.getElementById("contactModal");
+
+        if (openBtn && closeBtn && modal) {
+            openBtn.addEventListener("click", () => modal.classList.add("visible"));
+            closeBtn.addEventListener("click", () => modal.classList.remove("hidden"));
+        }
+    });
+</script>
+
 
 <?php } ?>
