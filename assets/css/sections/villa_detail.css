@@ -1,0 +1,77 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.modal-overlay.visible {
+  display: flex;
+}
+.modal-overlay__container {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  width: 24rem;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.modal-overlay__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.modal-overlay__close:hover {
+  color: #000;
+}
+.modal-overlay__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.modal-overlay__title .black {
+  color: #000;
+}
+.modal-overlay__title .red {
+  color: #dc2626;
+}
+.modal-overlay__subtitle {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+.modal-overlay__villa-id {
+  font-size: 0.875rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+.modal-overlay__form-input, .modal-overlay__form-textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+.modal-overlay__form-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal-overlay__form-button:hover {
+  background-color: #b91c1c;
+}

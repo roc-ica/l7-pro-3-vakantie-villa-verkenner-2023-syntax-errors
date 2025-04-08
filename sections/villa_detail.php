@@ -81,43 +81,58 @@ if (!$villaDetail) {
                 <li>Geen opties beschikbaar</li>
             <?php endif; ?>
         </ul>
+        <p>€ <?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></p>
         <!-- contact popup -->
         <div>
-            <p>€ <?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></p>
-            <button id="openModal" class="px-4 py-2 bg-red-600 text-white rounded">
+            <button id="openModal" class="">
                 Contacteer ons nu!
             </button>
         </div>
     </div>
 
-    <!-- Contact Form Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
-            <button id="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl">&times;</button>
-            <h2 class="text-xl font-bold mb-2"><span class="text-black">Get in</span> <span class="text-red-600">Touch</span></h2>
-            <p class="text-sm text-gray-600 mb-4">Heb je vragen? Neem contact op en we reageren zo snel mogelijk!</p>
+<!-- Contact Form Modal -->
+<div id="contactModal" class="modal-overlay">
+  <div class="modal-overlay__container">
+    <button id="closeModal" class="modal-overlay__close">&times;</button>
 
-         <!-- contact form -->
-            <form action="" method="POST">
-             <input type="text" name="naam" placeholder="Naam*" class="w-full p-2 mb-3 border rounded" required>
-             <input type="email" name="email" placeholder="E-mail*" class="w-full p-2 mb-3 border rounded" required>
-             <input type="hidden" name="villa" value="<?= $villa_id ?>">
-             <p class="text-gray-700 text-sm">Villa ID: <?= $_GET['id'] ?></p>
-             <textarea name="vraag" placeholder="Jouw vraag*" class="w-full p-2 mb-3 border rounded" required></textarea>
-             <button type="submit" class="w-full p-3 bg-red-600 text-white rounded">VERZENDEN</button>
-         </form>
-        </div>
-    </div>
+    <!-- Modal Title -->
+    <h2 class="modal-overlay__title">
+      <span class="black">Get in</span> <span class="red">Touch</span>
+    </h2>
 
-    <!-- Modal Script -->
-    <script>
-        document.getElementById("openModal").addEventListener("click", function () {
-            document.getElementById("contactModal").classList.remove("hidden");
-        });
+    <!-- Subtitle -->
+    <p class="modal-overlay__subtitle">
+      Have more questions? want to know if something is available?<br>
+      Feel free to contact us and we'll get back to you as soon as possible!
+    </p>
 
-        document.getElementById("closeModal").addEventListener("click", function () {
-            document.getElementById("contactModal").classList.add("hidden");
-        });
-    </script>
+    <?php if (!empty($message)) echo $message; ?>
+
+    <!-- Contact Form -->
+    <form action="" method="POST" class="modal-overlay__form">
+      <input type="text" name="naam" placeholder="Name *" class="modal-overlay__form-input" required>
+      <input type="email" name="email" placeholder="Email*" class="modal-overlay__form-input" required>
+      <p class="modal-overlay__villa-id">Villa ID: <?= $_GET['id'] ?></p>
+      <textarea name="vraag" placeholder="Your question*" class="modal-overlay__form-textarea" required></textarea>
+      <button type="submit" class="modal-overlay__form-button">Send</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Modal Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const openBtn = document.getElementById("openModal");
+        const closeBtn = document.getElementById("closeModal");
+        const modal = document.getElementById("contactModal");
+
+        if (openBtn && closeBtn && modal) {
+            openBtn.addEventListener("click", () => modal.classList.add("visible"));
+            closeBtn.addEventListener("click", () => modal.classList.remove("visible"));
+        }
+    });
+</script>
+
 
 <?php } ?>

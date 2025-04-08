@@ -7,7 +7,7 @@
 <!--    --><?php //include 'sections/banner.php'; ?>
     <main id="site-content">
         <?php include 'sections/header.php'; ?>
-        
+        <?php include 'sections/textblock_media.php'; ?>
     </main>
     <?php include 'sections/footer.php'; ?>
 </body>

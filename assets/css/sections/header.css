@@ -4,6 +4,8 @@
   grid-template-rows: repeat(4, auto);
   grid-template-columns: subgrid;
   background: url(../../img/home-banner.png) no-repeat center center/cover;
+  min-block-size: 30rem;
+  max-block-size: 90vh;
 }
 .header .header__container {
   display: grid;
@@ -24,7 +26,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem;
 }
 .header .heading__title {
   font-size: 10.1875rem;
@@ -40,6 +41,8 @@
   display: flex;
   justify-content: center;
   grid-column: 4/-4;
+  margin-block: 1rem;
+  max-block-size: 4rem;
 }
 .header .heading .button.--primary {
   display: flex;
