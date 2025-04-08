@@ -4,7 +4,9 @@
   grid-template-rows: repeat(4, auto);
   grid-template-columns: subgrid;
   background: url(../../img/home-banner.png) no-repeat center center/cover;
-  
+  min-block-size: 30rem;
+  max-block-size: 90vh;
+
   .header {
     &__container {
       display: grid;
@@ -27,7 +29,6 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 2rem;
     }
 
     &__title {
@@ -42,14 +43,16 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
-    .button{
-      &__group{
+    .button {
+      &__group {
         display: flex;
         justify-content: center;
         grid-column: 4/-4;
+        margin-block: 1rem;
+        max-block-size: 4rem;
       }
 
-      &.--primary{
+      &.--primary {
         display: flex;
         justify-content: center;
         align-items: center;

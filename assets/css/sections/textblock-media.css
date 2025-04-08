@@ -12,6 +12,11 @@
 .textblock-media__content {
   grid-column: 2/7;
 }
+.textblock-media__content.--left .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .textblock-media__media {
   display: flex;
   grid-column: 7/13;

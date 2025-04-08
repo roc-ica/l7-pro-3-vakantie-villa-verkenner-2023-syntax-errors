@@ -81,26 +81,27 @@ if (!$villaDetail) {
                 <li>Geen opties beschikbaar</li>
             <?php endif; ?>
         </ul>
+        <p>€ <?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></p>
         <!-- contact popup -->
         <div>
-            <p>€ <?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></p>
-            <button id="openModal" class="px-4 py-2 bg-red-600 text-white rounded">
+            <button id="openModal" class="">
                 Contacteer ons nu!
             </button>
         </div>
     </div>
+
 <!-- Contact Form Modal -->
 <div id="contactModal" class="modal-overlay">
-  <div class="modal-content">
-    <button id="closeModal" class="modal-close">&times;</button>
+  <div class="modal-overlay__container">
+    <button id="closeModal" class="modal-overlay__close">&times;</button>
 
     <!-- Modal Title -->
-    <h2 class="modal-title">
+    <h2 class="modal-overlay__title">
       <span class="black">Get in</span> <span class="red">Touch</span>
     </h2>
 
     <!-- Subtitle -->
-    <p class="modal-subtitle">
+    <p class="modal-overlay__subtitle">
       Have more questions? want to know if something is available?<br>
       Feel free to contact us and we'll get back to you as soon as possible!
     </p>
@@ -108,12 +109,12 @@ if (!$villaDetail) {
     <?php if (!empty($message)) echo $message; ?>
 
     <!-- Contact Form -->
-    <form action="" method="POST">
-      <input type="text" name="naam" placeholder="Name *" class="form-input" required>
-      <input type="email" name="email" placeholder="Email*" class="form-input" required>
-      <p class="villa-id">Villa ID: <?= $_GET['id'] ?></p>
-      <textarea name="vraag" placeholder="Your question*" class="form-textarea" required></textarea>
-      <button type="submit" class="form-button">Send</button>
+    <form action="" method="POST" class="modal-overlay__form">
+      <input type="text" name="naam" placeholder="Name *" class="modal-overlay__form-input" required>
+      <input type="email" name="email" placeholder="Email*" class="modal-overlay__form-input" required>
+      <p class="modal-overlay__villa-id">Villa ID: <?= $_GET['id'] ?></p>
+      <textarea name="vraag" placeholder="Your question*" class="modal-overlay__form-textarea" required></textarea>
+      <button type="submit" class="modal-overlay__form-button">Send</button>
     </form>
   </div>
 </div>
@@ -128,7 +129,7 @@ if (!$villaDetail) {
 
         if (openBtn && closeBtn && modal) {
             openBtn.addEventListener("click", () => modal.classList.add("visible"));
-            closeBtn.addEventListener("click", () => modal.classList.remove("hidden"));
+            closeBtn.addEventListener("click", () => modal.classList.remove("visible"));
         }
     });
 </script>

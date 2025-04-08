@@ -11,9 +11,17 @@
   }
 
   &__content {
-    grid-column: 2/7
-  }
+    grid-column: 2/7;
 
+
+    &.--left {
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
   &__media {
     display: flex;
     grid-column: 7/13;
@@ -32,9 +40,5 @@
     }
   }
 
-  &.__left{
-    .buttons{
 
-    }
-  }
 }
