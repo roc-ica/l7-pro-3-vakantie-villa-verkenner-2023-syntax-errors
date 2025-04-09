@@ -6,7 +6,9 @@
 <body>
     <?php include 'sections/navigation.php'; ?>
 
-    <?php include_once 'sections/villa_all.php'; ?>
+    <main id="site-content">
+        <?php include_once 'sections/villa_all.php'; ?>
+    </main>
 
     <?php include 'sections/footer.php'; ?>
 </body>
