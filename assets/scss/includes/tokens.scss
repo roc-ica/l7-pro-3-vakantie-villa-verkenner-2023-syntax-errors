@@ -1,10 +1,12 @@
 :root {
 
-    /* grid-container-tokens */
+  /* grid-container-tokens */
+
   --container-min-space: 1rem;
   --container-columns: 12;
   --container-width: 83.75rem;
   --container-gutter: 1rem;
+
   /* colors */
   --primary-default: #DA251D;
   --primary-hover: #A5342F;
@@ -25,5 +27,20 @@
   --text-secondairy: #000;
   --text-tertairy: #DA251D;
   /* misc */
-  --border-radius: 0.08rem;
+  --border-radius-5: 0.3125rem;
+  --border-radius-10: 0.625rem;
+  --border-radius-15: 0.9375rem;
+
+  /* typography */
+    --font-size-sm: 1rem;
+    --font-size-md: 1.5rem;
+    --font-size-lg: 2rem;
+    --font-size-xl: 2.5rem;
+
+  /* breakpoints */
+
+  $breakpoint-mobile: 30rem;
+  $breakpoint-tablet: 48rem;
+  $breakpoint-laptop: 61.25rem;
+  $breakpoint-desktop: 112.5rem;
 }

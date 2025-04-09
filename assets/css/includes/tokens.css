@@ -20,5 +20,13 @@
   --text-secondairy: #000;
   --text-tertairy: #DA251D;
   /* misc */
-  --border-radius: 0.08rem;
+  --border-radius-5: 0.3125rem;
+  --border-radius-10: 0.625rem;
+  --border-radius-15: 0.9375rem;
+  /* typography */
+  --font-size-sm: 1rem;
+  --font-size-md: 1.5rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 2.5rem;
+  /* breakpoints */
 }

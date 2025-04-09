@@ -12,7 +12,8 @@
             var(--container-columns, 12)
     );
 
-    position: static;
+    position: absolute;
     min-block-size: 90vh;
     max-block-size: 100%;
+    margin-block: 10vh;
 }
