@@ -59,13 +59,15 @@ class Villas {
         }
     
         if (!empty($filters['liggingsoptie'])) {
-            $sql .= " AND villaOpties.`ligging.id` = :liggingsoptie";
-            $params['liggingsoptie'] = $filters['liggingsoptie'];
+            $placeholders = implode(',', array_fill(0, count($filters['liggingsoptie']), '?'));
+            $sql .= " AND villaOpties.`ligging.id` IN ($placeholders)";
+            $params = array_merge($params, $filters['liggingsoptie']);
         }
     
         if (!empty($filters['eigenschap'])) {
-            $sql .= " AND villaEigenschappen.`eigenschap.id` = :eigenschap";
-            $params['eigenschap'] = $filters['eigenschap'];
+            $placeholders = implode(',', array_fill(0, count($filters['eigenschap']), '?'));
+            $sql .= " AND villaEigenschappen.`eigenschap.id` IN ($placeholders)";
+            $params = array_merge($params, $filters['eigenschap']);
         }
     
         $stmt = $this->db->pdo->prepare($sql);

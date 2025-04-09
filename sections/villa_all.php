@@ -7,8 +7,8 @@
         'name' => $_GET['name'] ?? null,
         'min_price' => $_GET['min_price'] ?? null,
         'max_price' => $_GET['max_price'] ?? null,
-        'liggingsoptie' => $_GET['liggingsoptie'] ?? null,
-        'eigenschap' => $_GET['eigenschap'] ?? null,
+        'liggingsoptie' => isset($_GET['liggingsoptie']) && is_array($_GET['liggingsoptie']) ? $_GET['liggingsoptie'] : [],
+        'eigenschap' => isset($_GET['eigenschap']) && is_array($_GET['eigenschap']) ? $_GET['eigenschap'] : [],
     ];
 
     $villas = $villa->getVillas($filters);
@@ -16,49 +16,29 @@
     <section class="all-villas">
         <form method="GET" action="villa.php" style="margin-bottom: 20px;">
             <input type="text" name="name" placeholder="Zoek op naam"
-                   value="<?= htmlspecialchars($_GET['name'] ?? '') ?>" style="margin-right: 10px;">
+                value="<?= htmlspecialchars($_GET['name'] ?? '') ?>" style="margin-right: 10px;">
             <input type="number" name="min_price" placeholder="Min. prijs"
-                   value="<?= htmlspecialchars($_GET['min_price'] ?? '') ?>" style="margin-right: 10px;">
+                value="<?= htmlspecialchars($_GET['min_price'] ?? '') ?>" style="margin-right: 10px;">
             <input type="number" name="max_price" placeholder="Max. prijs"
-                   value="<?= htmlspecialchars($_GET['max_price'] ?? '') ?>" style="margin-right: 10px;">
+                value="<?= htmlspecialchars($_GET['max_price'] ?? '') ?>" style="margin-right: 10px;">
 
-            <select name="liggingsoptie" style="margin-right: 10px;">
-                <option value="">Ligging</option>
-                <option value="1" <?= (isset($_GET['liggingsoptie']) && $_GET['liggingsoptie'] == 1) ? 'selected' : '' ?>>
-                    Dicht bij een bos
-                </option>
-                <option value="2" <?= (isset($_GET['liggingsoptie']) && $_GET['liggingsoptie'] == 2) ? 'selected' : '' ?>>
-                    Dicht bij een stad
-                </option>
-                <option value="3" <?= (isset($_GET['liggingsoptie']) && $_GET['liggingsoptie'] == 3) ? 'selected' : '' ?>>
-                    Dicht bij de zee
-                </option>
-                <option value="4" <?= (isset($_GET['liggingsoptie']) && $_GET['liggingsoptie'] == 4) ? 'selected' : '' ?>>
-                    In het heuvelland
-                </option>
-                <option value="5" <?= (isset($_GET['liggingsoptie']) && $_GET['liggingsoptie'] == 5) ? 'selected' : '' ?>>
-                    Aan het water
-                </option>
-            </select>
+            <fieldset style="margin-bottom: 10px;">
+                <legend>Ligging</legend>
+                <label><input type="checkbox" name="liggingsoptie[]" value="1" <?= (isset($_GET['liggingsoptie']) && is_array($_GET['liggingsoptie']) && in_array(1, $_GET['liggingsoptie'])) ? 'checked' : '' ?>> Dicht bij een bos</label><br>
+                <label><input type="checkbox" name="liggingsoptie[]" value="2" <?= (isset($_GET['liggingsoptie']) && is_array($_GET['liggingsoptie']) && in_array(2, $_GET['liggingsoptie'])) ? 'checked' : '' ?>> Dicht bij een stad</label><br>
+                <label><input type="checkbox" name="liggingsoptie[]" value="3" <?= (isset($_GET['liggingsoptie']) && is_array($_GET['liggingsoptie']) && in_array(3, $_GET['liggingsoptie'])) ? 'checked' : '' ?>> Dicht bij de zee</label><br>
+                <label><input type="checkbox" name="liggingsoptie[]" value="4" <?= (isset($_GET['liggingsoptie']) && is_array($_GET['liggingsoptie']) && in_array(4, $_GET['liggingsoptie'])) ? 'checked' : '' ?>> In het heuvelland</label><br>
+                <label><input type="checkbox" name="liggingsoptie[]" value="5" <?= (isset($_GET['liggingsoptie']) && is_array($_GET['liggingsoptie']) && in_array(5, $_GET['liggingsoptie'])) ? 'checked' : '' ?>> Aan het water</label>
+            </fieldset>
 
-            <select name="eigenschap" style="margin-right: 10px;">
-                <option value="">Eigenschap</option>
-                <option value="1" <?= (isset($_GET['eigenschap']) && $_GET['eigenschap'] == 1) ? 'selected' : '' ?>>
-                    Inclusief overname inventaris
-                </option>
-                <option value="2" <?= (isset($_GET['eigenschap']) && $_GET['eigenschap'] == 2) ? 'selected' : '' ?>>
-                    Zwembad
-                </option>
-                <option value="3" <?= (isset($_GET['eigenschap']) && $_GET['eigenschap'] == 3) ? 'selected' : '' ?>>
-                    Winkel(s) in de buurt
-                </option>
-                <option value="4" <?= (isset($_GET['eigenschap']) && $_GET['eigenschap'] == 4) ? 'selected' : '' ?>>
-                    Entertainment in de buurt
-                </option>
-                <option value="5" <?= (isset($_GET['eigenschap']) && $_GET['eigenschap'] == 5) ? 'selected' : '' ?>>Op
-                    een privépark
-                </option>
-            </select>
+            <fieldset style="margin-bottom: 10px;">
+                <legend>Eigenschappen</legend>
+                <label><input type="checkbox" name="eigenschap[]" value="1" <?= (isset($_GET['eigenschap']) && is_array($_GET['eigenschap']) && in_array(1, $_GET['eigenschap'])) ? 'checked' : '' ?>> Inclusief overname inventaris</label><br>
+                <label><input type="checkbox" name="eigenschap[]" value="2" <?= (isset($_GET['eigenschap']) && is_array($_GET['eigenschap']) && in_array(2, $_GET['eigenschap'])) ? 'checked' : '' ?>> Zwembad</label><br>
+                <label><input type="checkbox" name="eigenschap[]" value="3" <?= (isset($_GET['eigenschap']) && is_array($_GET['eigenschap']) && in_array(3, $_GET['eigenschap'])) ? 'checked' : '' ?>> Winkel(s) in de buurt</label><br>
+                <label><input type="checkbox" name="eigenschap[]" value="4" <?= (isset($_GET['eigenschap']) && is_array($_GET['eigenschap']) && in_array(4, $_GET['eigenschap'])) ? 'checked' : '' ?>> Entertainment in de buurt</label><br>
+                <label><input type="checkbox" name="eigenschap[]" value="5" <?= (isset($_GET['eigenschap']) && is_array($_GET['eigenschap']) && in_array(5, $_GET['eigenschap'])) ? 'checked' : '' ?>> Op een privépark</label>
+            </fieldset>
 
             <button type="submit">Zoeken</button>
         </form>
@@ -66,17 +46,17 @@
             <?php foreach ($villas as $item): ?>
                 <div style="border:1px solid #ccc;padding:15px;width:250px;">
                     <a href="villa.php?id=<?= htmlspecialchars($item['id']) ?>"
-                       style="text-decoration:none;color:black;">
+                        style="text-decoration:none;color:black;">
                         <?php
                         $primaryImage = $villa->getPrimaryImage($item['id']);
                         if ($primaryImage):
-                            ?>
+                        ?>
                             <img src="assets/img/villa/<?= htmlspecialchars($primaryImage) ?>"
-                                 alt="<?= htmlspecialchars($item['name']) ?>"
-                                 style="width:100%;height:auto;margin-bottom:10px;">
+                                alt="<?= htmlspecialchars($item['name']) ?>"
+                                style="width:100%;height:auto;margin-bottom:10px;">
                         <?php else: ?>
                             <img src="https://via.placeholder.com/250x150?text=Geen+afbeelding" alt="Geen afbeelding"
-                                 style="width:100%;height:auto;margin-bottom:10px;">
+                                style="width:100%;height:auto;margin-bottom:10px;">
                         <?php endif; ?>
 
                         <h2 style="margin:0 0 10px 0;font-size:18px;"><?= htmlspecialchars($item['name']) ?></h2>

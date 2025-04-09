@@ -1,6 +1,7 @@
 <!--general styling-->
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/includes/tokens.css">
 
 <!--links for the sections-->
 <link rel="stylesheet" href="/assets/css/sections/header.css">
@@ -12,3 +13,6 @@
 
 <!--links for the components-->
 <link rel="stylesheet" href="/assets/css/components/buttons.css">
+
+<!--js scripts-->
+<script src="/assets/js/navigation.js"></script>

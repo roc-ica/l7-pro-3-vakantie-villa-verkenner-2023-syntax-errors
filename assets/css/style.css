@@ -16,6 +16,10 @@ body {
     padding: 0;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 /* Admin */
 .villadmin {
     display: flex;
