@@ -8,6 +8,7 @@
     <main id="site-content">
         <?php include 'sections/header.php'; ?>
         <?php include 'sections/textblock_media.php'; ?>
+        <?php include 'sections/contacts.php'; ?>
     </main>
     <?php include 'sections/footer.php'; ?>
 </body>
