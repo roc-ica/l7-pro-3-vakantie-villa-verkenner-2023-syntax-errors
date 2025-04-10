@@ -13,6 +13,7 @@
   box-shadow: 0 0 10px #1e1e1e54;
   position: fixed;
   min-block-size: 10vh;
+  min-inline-size: 100vw;
   z-index: 99;
 
   &__container {
@@ -22,7 +23,6 @@
     padding: 0.5rem 0;
     max-inline-size: var(--container-width, 83.75rem);
     inline-size: 100%;
-    overflow: hidden;
   }
 
   &__logo-container {
