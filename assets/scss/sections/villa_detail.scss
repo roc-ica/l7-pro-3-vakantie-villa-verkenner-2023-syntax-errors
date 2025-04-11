@@ -21,20 +21,59 @@
       }
     }
 
-    &-thumbnail {
-      display: flex;
+
+    &-thumbnail-wrapper {
+      position: relative;
+      max-width: 100%;
       grid-column: 1/-1;
-      overflow-x: scroll;
+    }
+
+    .slider-controls {
+      display: flex;
       justify-content: space-between;
+      margin-top: 0.5rem;
+
+      .slider-control {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #555;
+        }
+      }
     }
   }
 
+  &__image-thumbnail {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
+    // Set container width based on breakpoints,
+    // so that it exactly contains the number of 7rem images required.
+    width: 7rem; // Default: one image (for mobile)
+    @media (min-width: 600px) {
+      width: calc(7rem * 2); // 2 images per view
+    }
+    @media (min-width: 768px) {
+      width: calc(7rem * 3); // 3 images per view
+    }
+    @media (min-width: 1024px) {
+      width: calc(7rem * 4); // 4 images per view
+    }
+  }
 
   &__each-image {
-    inline-size: 7rem;
+    flex: 0 0 auto;  // Do not let it stretch – let it be as wide as it needs to be
+    width: 7rem;     // Force each image slide to 7rem wide
 
     img {
-      inline-size: 100%;
+      width: 100%;
+      height: auto;
+      display: block;
     }
   }
 

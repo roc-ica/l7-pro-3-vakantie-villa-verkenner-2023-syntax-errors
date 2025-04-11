@@ -25,14 +25,23 @@ if (!$villaDetail) {
                 <?php endif; ?>
             </div>
 
-            <div class="villa-detail__image-thumbnail">
-                <?php foreach ($thumbnailImages as $image): ?>
-                    <div class="villa-detail__each-image">
-                        <img src="assets/img/villa/<?= htmlspecialchars($image['image']) ?>"
-                             alt="Villa Image">
-                    </div>
-                <?php endforeach; ?>
+            <!-- Thumbnail Slider Container -->
+            <div class="villa-detail__image-thumbnail-wrapper">
+                <div id="villa-detail_thumbnail" class="villa-detail__image-thumbnail">
+                    <?php foreach ($thumbnailImages as $image): ?>
+                        <div class="villa-detail__each-image">
+                            <img src="assets/img/villa/<?= htmlspecialchars($image['image']) ?>"
+                                 alt="Villa Image">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <!-- Navigation Controls -->
+                <div class="slider-controls">
+                    <button id="prev" class="slider-control slider-control--prev">Prev</button>
+                    <button id="next" class="slider-control slider-control--next">Next</button>
+                </div>
             </div>
+
         </div>
 
         <?php
@@ -57,16 +66,17 @@ if (!$villaDetail) {
         ?>
 
         <div class="villa-detail__details">
-
-            <h1 class="villas-details__villa-name"><?= htmlspecialchars($villaDetail['name']) ?></h1>
-            <p class="villas-details__villa-description"/> <?= htmlspecialchars($villaDetail['desc']) ?></p>
-            <!-- villa details -->
-            <ul class="villas-details__villa-detail list">
-                <li class="list__street">📍 <?= htmlspecialchars($villaDetail['street'] . ' ' . $villaDetail['number']) ?></li>
-                <li class="list__price">💰 €<?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></li>
-                <li class="list__forsale">🏡 Te koop: <?= $villaDetail['forsale'] ? 'Ja' : 'Nee' ?></li>
-            </ul>
+           <div class="villas-detail__villa-general">
+                <h1 class="villas-details__villa-name"><?= htmlspecialchars($villaDetail['name']) ?></h1>
+                <p class="villas-details__villa-description"/> <?= htmlspecialchars($villaDetail['desc']) ?></p>
+                <!-- villa details -->
+                <ul class="villa-detail__villa-list list">
+                    <li class="list__street">📍 <?= htmlspecialchars($villaDetail['street'] . ' ' . $villaDetail['number']) ?></li>
+                    <li class="list__price">💰 €<?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></li>
+                    <li class="list__forsale">🏡 Te koop: <?= $villaDetail['forsale'] ? 'Ja' : 'Nee' ?></li>
+                </ul>
             <br>
+           </div>
             <!-- villa eigenschappen -->
             <ul class="villas-details__eigenschappen list">
                 <?php if (!empty($villaEigenschappen)): ?>
@@ -127,18 +137,5 @@ if (!$villaDetail) {
         </div>
     </section>
     <!-- Modal Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const openBtn = document.getElementById("openModal");
-            const closeBtn = document.getElementById("closeModal");
-            const modal = document.getElementById("contactModal");
-
-            if (openBtn && closeBtn && modal) {
-                openBtn.addEventListener("click", () => modal.classList.add("visible"));
-                closeBtn.addEventListener("click", () => modal.classList.remove("visible"));
-            }
-        });
-    </script>
-
-
+    <script src="/assets/js/villa_detail.js"></script>
 <?php } ?>

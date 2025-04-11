@@ -18,17 +18,55 @@
   inline-size: 100%;
   border-radius: 0.625rem;
 }
+.villa-detail__image-thumbnail-wrapper {
+  position: relative;
+  max-width: 100%;
+  grid-column: 1/-1;
+}
+.villa-detail__image .slider-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.villa-detail__image .slider-controls .slider-control {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.villa-detail__image .slider-controls .slider-control:hover {
+  background-color: #555;
+}
 .villa-detail__image-thumbnail {
   display: flex;
-  grid-column: 1/-1;
-  overflow-x: scroll;
-  justify-content: space-between;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  width: 7rem;
+}
+@media (min-width: 600px) {
+  .villa-detail__image-thumbnail {
+    width: 14rem;
+  }
+}
+@media (min-width: 768px) {
+  .villa-detail__image-thumbnail {
+    width: 21rem;
+  }
+}
+@media (min-width: 1024px) {
+  .villa-detail__image-thumbnail {
+    width: 28rem;
+  }
 }
 .villa-detail__each-image {
-  inline-size: 7rem;
+  flex: 0 0 auto;
+  width: 7rem;
 }
 .villa-detail__each-image img {
-  inline-size: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .villa-detail__details {
   display: flex;
