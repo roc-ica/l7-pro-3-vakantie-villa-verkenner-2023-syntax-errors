@@ -27,25 +27,27 @@ function thumbnailSlider() {
         const nextButton = document.getElementById('next');
         let currentIndex = 0;
 
-        // Set a minimum desired width for each thumbnail. Assuming 1rem = 16px, 7rem ~ 112px.
-        const minDesiredWidth = 112;
-
-        // Calculate the number of slides that can fit based on container width,
-        // clamped between 1 and 4.
         const getVisibleSlides = () => {
-            const containerWidth = sliderContainer.offsetWidth;
-            let visible = Math.floor(containerWidth / minDesiredWidth);
-            visible = Math.max(1, Math.min(visible, 4));
-            return visible;
+            const width = window.innerWidth;
+            if (width >= 768) {
+                return 4;
+            } else if (width >= 550) {
+                return 3;
+            }
+            return 2;
         };
 
         const updateSlider = () => {
             const visibleSlides = getVisibleSlides();
-            const containerWidth = sliderContainer.offsetWidth;
-            // Compute each slide's width so the container is filled ear to ear.
-            const slideWidth = containerWidth / visibleSlides;
 
-            // Adjust currentIndex if it's out of bounds.
+            // Calculate the actual width of one slide including margins.
+            const firstSlide = slides[0];
+            const slideStyles = window.getComputedStyle(firstSlide);
+            const slideWidth = firstSlide.offsetWidth +
+                parseFloat(slideStyles.marginLeft) +
+                parseFloat(slideStyles.marginRight);
+
+            // Prevent the currentIndex from going out of bounds.
             if (currentIndex > slides.length - visibleSlides) {
                 currentIndex = slides.length - visibleSlides;
             }
@@ -76,11 +78,7 @@ function thumbnailSlider() {
 
         nextButton.addEventListener("click", slideNext);
         prevButton.addEventListener("click", slidePrev);
-
-        // Update slider on window resize in case container width changes.
         window.addEventListener("resize", updateSlider);
-
-        // Initialize slider.
         updateSlider();
     });
 }
