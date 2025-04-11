@@ -13,9 +13,6 @@
                     <p>
                         See for yourself!
                     </p>
-                    <a href="../index.php">
-                        <button type="button" class="buttons__button">Alternative</button>
-                    </a>
                 </div>
             </div>
         </div>

@@ -4,6 +4,20 @@
 <html lang="nl">
 <?php include '../includes/head.php'; ?>
 
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_GET['villa']) && isset($_POST['id'])) {
+        
+    } else if (isset($_GET['eigenschappen'])) {
+        $options->addEigenschap($_POST['name']);
+    } else if (isset($_GET['liggingsopties'])) {
+        $liggingsopties->addLiggingsoptie($_POST['name']);
+    }
+}
+
+?>
+
 <body class="villadmin">
     <section class="sidebar">
         <h1>Vill<span>a</span>dmin</h1>
@@ -18,23 +32,25 @@
         </nav>
     </section>
     <section class="content">
-        <?php if (isset($_GET['villa']) && isset($_GET['id'])) { ?>
-            <?php $v = $villa->getVilla($_GET['id']); ?>
-            <form action="" method="post">
-                <input type="hidden" name="id" value="<?= htmlspecialchars($v['id']) ?>">
-                <label for="name">Name</label>
-                <input type="text" name="name" value="<?= htmlspecialchars($v['name']) ?>">
-                <label for="desc">Description</label>
-                <textarea name="desc"><?= htmlspecialchars($v['desc']) ?></textarea>
-                <label for="price">Price</label>
-                <input type="text" name="price" value="<?= htmlspecialchars($v['price']) ?>">
-                <button type="submit">Save</button>
+        <?php if (isset($_GET['eigenschappen'])) { ?>
+            <h1>Eigenschappen</h1>
+            <?php var_dump($options->getEigenschappen()); ?>
+            <form method="POST" action="?eigenschappen">
+                <input type="text" name="name" placeholder="Naam van de eigenschap">
+                <button type="submit">Toevoegen</button>
             </form>
-            <div class="images">
-                <?php foreach ($villa->getVillaImages($v['id']) as $i) { ?>
-                    <img src="/assets/img/villa/<?= htmlspecialchars($i['image']) ?>" alt="<?= htmlspecialchars($v['name']) ?>">
-                <?php } ?>
-            </div>
+        <?php } else if (isset($_GET['liggingsopties'])) { ?>
+            <h1>Liggingsopties</h1>
+            <?php var_dump($liggingsopties->getLiggingsopties()); ?>
+            <form method="POST" action="?liggingsopties">
+                <input type="text" name="name" placeholder="Naam van de liggingsoptie">
+                <button type="submit">Toevoegen</button>
+            </form>
+        <?php } else if (isset($_GET['reserveringen'])) { ?>
+            <h1>Reserveringen</h1>
+            <?php var_dump($contact->getContacts()); ?>
+        <?php } else if (isset($_GET['villa']) && isset($_GET['id'])) { ?>
+            <?php $v = $villa->getVilla($_GET['id']); ?>
         <?php } else { ?>
             <header class="search">
                 <input type="text" placeholder="Search">

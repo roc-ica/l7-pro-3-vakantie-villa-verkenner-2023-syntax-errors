@@ -37,4 +37,10 @@ class Liggingsopties {
         return $result;
     }
 
+    public function addLiggingsoptie($name) {
+        $sql = "INSERT INTO ligging_opties (name) VALUES (:name)";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->execute(['name' => $name]);
+    }
+
 }
