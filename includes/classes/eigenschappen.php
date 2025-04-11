@@ -36,4 +36,11 @@ class Eigenschappen {
         }
         return $result;
     }
+
+    public function addEigenschap($name) {
+        $sql = "INSERT INTO eigenschappen (name) VALUES (:name)";
+        $stmt = $this->db->pdo->prepare($sql);
+        $stmt->execute(['name' => $name]);
+    }
+    
 }
