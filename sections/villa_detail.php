@@ -103,6 +103,9 @@ if (!$villaDetail) {
                 <button id="openModal" class="villa-detail__contact-button">
                     Contacteer ons nu!
                 </button>
+                <a href="/includes/generate_pdf.php?id=<?= $villaDetail['id'] ?>" target="_blank" class="villa-pdf_download-button">
+                    Download PDF
+                 </a>
             </div>
         </div>
 
