@@ -8,38 +8,33 @@ class Villas {
         $this->db = new Database();
     }
 
-    // Haalt één villa op (mits niet verwijderd)
+    // public function getVillas() {
+    //     $sql = "SELECT * FROM villa WHERE is_deleted = 0";
+    //     $stmt = $this->db->pdo->prepare($sql);
+    //     $stmt->execute();
+    //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // }
+
     public function getVilla($id) {
         $sql = "SELECT * FROM villa WHERE id = :id AND is_deleted = 0";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // Haalt alle afbeeldingen op voor een villa
     public function getVillaImages($id) {
         $sql = "SELECT * FROM villaImages WHERE villa = :id";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    // Haalt de primaire afbeelding op voor een villa
     public function getPrimaryImage($id) {
         $sql = "SELECT image FROM villaImages WHERE villa = :id AND `primary` = 1";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
         return $stmt->fetchColumn();
     }
-
-    public function getAllVillas() {
-        $sql = "SELECT * FROM villa WHERE is_deleted = 0";
-        $stmt = $this->db->pdo->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-    
-    // Haalt villa's op met optionele filters
     public function getVillas($filters = []) {
         $sql = "SELECT DISTINCT villa.* FROM villa 
                 LEFT JOIN villaEigenschappen ON villa.id = villaEigenschappen.`villa.id`
@@ -77,76 +72,72 @@ class Villas {
     
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute($params);
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addVilla($data) {
-        $sql = "INSERT INTO villa (name, postal, street, number, `desc`, price, forsale) 
-                VALUES (:name, :postal, :street, :number, :desc, :price, :forsale)";
+    public function addVilla($name, $price, $postal, $street, $number, $desc) {
+        $sql = "INSERT INTO villa (name, price, postal, street, number, `desc`, is_deleted) VALUES (:name, :price, :postal, :street, :number, :desc, 0)";
         $stmt = $this->db->pdo->prepare($sql);
-        $stmt->execute([
-            'name'    => $data['name'],
-            'postal'  => $data['postal'],
-            'street'  => $data['street'],
-            'number'  => $data['number'],
-            'desc'    => $data['desc'],
-            'price'   => $data['price'],
-            'forsale' => isset($data['forsale']) ? 1 : 0
-        ]);
-        return $this->db->pdo->lastInsertId();
+        if ($stmt->execute([
+            'name' => $name,
+            'price' => $price,
+            'postal' => $postal,
+            'street' => $street,
+            'number' => $number,
+            'desc' => $desc
+        ])) {
+            return $this->db->pdo->lastInsertId();
+        }
+        return false;
     }
 
-    public function updateVilla($id, $data) {
-        $sql = "UPDATE villa 
-                SET name = :name, postal = :postal, street = :street, number = :number, `desc` = :desc, price = :price, forsale = :forsale 
-                WHERE id = :id";
+    public function updateVilla($id, $name, $price, $postal, $street, $number, $desc) {
+        $sql = "UPDATE villa SET name = :name, price = :price, postal = :postal, street = :street, number = :number, `desc` = :desc WHERE id = :id";
         $stmt = $this->db->pdo->prepare($sql);
-        $stmt->execute([
-            'name'    => $data['name'],
-            'postal'  => $data['postal'],
-            'street'  => $data['street'],
-            'number'  => $data['number'],
-            'desc'    => $data['desc'],
-            'price'   => $data['price'],
-            'forsale' => isset($data['forsale']) ? 1 : 0,
-            'id'      => $id
+        return $stmt->execute([
+            'id' => $id,
+            'name' => $name,
+            'price' => $price,
+            'postal' => $postal,
+            'street' => $street,
+            'number' => $number,
+            'desc' => $desc
         ]);
     }
 
     public function deleteVilla($id) {
         $sql = "UPDATE villa SET is_deleted = 1 WHERE id = :id";
         $stmt = $this->db->pdo->prepare($sql);
-        $stmt->execute(['id' => $id]);
+        return $stmt->execute(['id' => $id]);
     }
 
-    public function addVillaImages($villaId, $files, $primaryIndex = null) {
-        $total = count($files['name']);
-        for ($i = 0; $i < $total; $i++) {
-            $tmpFile = $files['tmp_name'][$i];
-            if ($tmpFile && is_uploaded_file($tmpFile)) {
-                $filename = uniqid() . "_" . basename($files['name'][$i]);
-                $destination = "/assets/img/villa/" . $filename;
-                if (move_uploaded_file($tmpFile, $destination)) {
-                    $isPrimary = ($primaryIndex !== null && $primaryIndex == $i) ? 1 : 0;
-                    $sql = "INSERT INTO villaImages (villa, image, `primary`) VALUES (:villa, :image, :primary)";
-                    $stmt = $this->db->pdo->prepare($sql);
-                    $stmt->execute([
-                        'villa'   => $villaId,
-                        'image'   => $filename,
-                        'primary' => $isPrimary
-                    ]);
-                }
-            }
+    public function addVillaEigenschappen($villa_id, $eigenschap_ids) {
+        $sqlDelete = "DELETE FROM villaEigenschappen WHERE `villa.id` = :villa_id";
+        $stmtDelete = $this->db->pdo->prepare($sqlDelete);
+        $stmtDelete->execute(['villa_id' => $villa_id]);
+
+        $sqlInsert = "INSERT INTO villaEigenschappen (`villa.id`, `eigenschap.id`) VALUES (:villa_id, :eigenschap_id)";
+        $stmtInsert = $this->db->pdo->prepare($sqlInsert);
+        foreach ($eigenschap_ids as $eigenschap_id) {
+            $stmtInsert->execute([
+                'villa_id' => $villa_id,
+                'eigenschap_id' => $eigenschap_id
+            ]);
         }
     }
 
-    public function getVillaPrimaryImage($villaId) {
-        $sql = "SELECT primary FROM villaImages WHERE villa = :villa AND `primary` = 1";
-        $stmt = $this->db->pdo->prepare($sql);
-        $stmt->execute(['villa' => $villaId]);
-        return $stmt->fetchColumn();
+    public function addVillaOpties($villa_id, $optie_ids) {
+        $sqlDelete = "DELETE FROM villaOpties WHERE `villa.id` = :villa_id";
+        $stmtDelete = $this->db->pdo->prepare($sqlDelete);
+        $stmtDelete->execute(['villa_id' => $villa_id]);
+
+        $sqlInsert = "INSERT INTO villaOpties (`villa.id`, `ligging.id`) VALUES (:villa_id, :optie_id)";
+        $stmtInsert = $this->db->pdo->prepare($sqlInsert);
+        foreach ($optie_ids as $optie_id) {
+            $stmtInsert->execute([
+                'villa_id' => $villa_id,
+                'optie_id' => $optie_id
+            ]);
+        }
     }
-
 }
-
-?>
