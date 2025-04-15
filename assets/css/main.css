@@ -8,9 +8,8 @@
           (var(--container-width, 83.75rem) - var(--container-gutter, 1rem) * (var(--container-columns, 12) - 1)) /
           var(--container-columns, 12)
   );
-  position: absolute;
   min-block-size: 90vh;
   max-block-size: 100%;
   min-inline-size: 100vw;
-  margin-block: 10vh;
+  margin-block-start: 10vh;
 }
