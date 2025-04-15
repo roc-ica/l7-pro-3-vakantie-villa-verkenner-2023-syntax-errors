@@ -49,7 +49,7 @@
 }
 @media (max-width: 30rem) {
   .navigation__logo-image img {
-    block-size: 2rem;
+    block-size: 1.7rem;
   }
 }
 @media (min-width: 30.063rem) and (max-width: 58.125rem) {
@@ -143,7 +143,7 @@
 }
 @media (min-width: 33.125rem) {
   .navigation__hamburger {
-    grid-column: 12/-3;
+    grid-column: 12/-1;
   }
 }
 @media (min-width: 38.125rem) {
