@@ -43,4 +43,18 @@ class Liggingsopties {
         $stmt->execute(['name' => $name]);
     }
 
+    public function updateLiggingsoptie($id, $name) {
+        $sql = "UPDATE ligging_opties SET name = :name WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        return $stmt->execute([
+            'id' => $id,
+            'name' => $name
+        ]);
+    }
+
+    public function deleteLiggingsoptie($id) {
+        $sql = "DELETE FROM ligging_opties WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        return $stmt->execute(['id' => $id]);
+    }
 }
