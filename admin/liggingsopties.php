@@ -9,30 +9,26 @@ Session::CheckSession();
 <body class="villadmin">
     <?php include '../sections/admin_sidebar.php'; ?>
     <section class="content">
-        <?php $villas = $villa->getAllVillas(); ?>
-        <h1>Villas</h1>
+        <h1>Liggingseigenschappen</h1>
         <table>
             <thead>
                 <tr>
                     <th>Naam</th>
-                    <th>Prijs</th>
-                    <th>Locatie</th>
                     <th>Acties</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($villas as $villa) : ?>
+                <?php $eigenschappen = $liggingsopties->getLiggingsopties(); ?>
+                <?php foreach ($eigenschappen as $options) : ?>
                     <tr>
-                        <td><?= $villa->name ?></td>
-                        <td><?= $villa->price ?></td>
-                        <td><?= $villa->postal . ' ' . $villa->number ?></td>
-                        <td><a href="villa_actions.php?id=<?= $villa->id ?>">Bewerken</a></td>
-                        <td><a href="villa_actions.php?id=<?= $villa->id ?>&delete">Verwijderen</a></td>
+                        <td><?= $options->name ?></td>
+                        <td><a href="liggingsoptions_actions.php?id=<?= $options->id ?>">Bewerken</a></td>
+                        <td><a href="liggingsoptions_actions.php?id=<?= $options->id ?>&delete">Verwijderen</a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <form action="villa_actions.php" method="POST">
+        <form action="liggingsoptions_actions.php" method="POST">
             <button type="submit">Toevoegen</button>
         </form>
     </section>

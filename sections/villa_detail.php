@@ -9,17 +9,18 @@ $villaOpties = $liggingsopties->getLiggingsoptiesByVilla($_GET['id']);
 if (!$villaDetail) {
     echo "<p style='padding:20px;'>Villa niet gevonden.</p>";
 } else {
-    $primaryImage = array_filter($villaImages, fn($img) => $img["primary"] == 1);
+    // Filter de primaire afbeelding en de thumbnails (gebruik object-eigenschappen)
+    $primaryImage = array_filter($villaImages, fn($img) => $img->primary == 1);
     $primaryImage = reset($primaryImage);
-    $thumbnailImages = array_filter($villaImages, fn($img) => $img["primary"] == 0);
+    $thumbnailImages = array_filter($villaImages, fn($img) => $img->primary == 0);
     ?>
 
     <section class="villa-detail">
         <div class="villa-detail__images">
             <div class="villa-detail__image-primary">
                 <?php if ($primaryImage): ?>
-                    <img src="assets/img/villa/<?= htmlspecialchars($primaryImage['image']) ?>"
-                         alt="<?= htmlspecialchars($villaDetail['name']) ?>">
+                    <img src="assets/img/villa/<?= htmlspecialchars($primaryImage->image) ?>"
+                         alt="<?= htmlspecialchars($villaDetail->name) ?>">
                 <?php else: ?>
                     <p>Geen afbeelding beschikbaar</p>
                 <?php endif; ?>
@@ -30,7 +31,7 @@ if (!$villaDetail) {
                 <div id="villa-detail_thumbnail" class="villa-detail__image-thumbnail">
                     <?php foreach ($thumbnailImages as $image): ?>
                         <div class="villa-detail__each-image">
-                            <img src="assets/img/villa/<?= htmlspecialchars($image['image']) ?>"
+                            <img src="assets/img/villa/<?= htmlspecialchars($image->image) ?>"
                                  alt="Villa Image">
                         </div>
                     <?php endforeach; ?>
@@ -41,7 +42,6 @@ if (!$villaDetail) {
                     <button id="next" class="slider-control slider-control--next">Next</button>
                 </div>
             </div>
-
         </div>
 
         <?php
@@ -67,13 +67,13 @@ if (!$villaDetail) {
 
         <div class="villa-detail__details">
            <div class="villas-detail__villa-general">
-                <h1 class="villas-details__villa-name"><?= htmlspecialchars($villaDetail['name']) ?></h1>
-                <p class="villas-details__villa-description"/> <?= htmlspecialchars($villaDetail['desc']) ?></p>
+                <h1 class="villas-details__villa-name"><?= htmlspecialchars($villaDetail->name) ?></h1>
+                <p class="villas-details__villa-description"><?= htmlspecialchars($villaDetail->desc) ?></p>
                 <!-- villa details -->
                 <ul class="villa-detail__villa-list list">
-                    <li class="list__street">📍 <?= htmlspecialchars($villaDetail['street'] . ' ' . $villaDetail['number']) ?></li>
-                    <li class="list__price">💰 €<?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></li>
-                    <li class="list__forsale">🏡 Te koop: <?= $villaDetail['forsale'] ? 'Ja' : 'Nee' ?></li>
+                    <li class="list__street">📍 <?= htmlspecialchars($villaDetail->street . ' ' . $villaDetail->number) ?></li>
+                    <li class="list__price">💰 €<?= htmlspecialchars(number_format($villaDetail->price, 2, ',', '.')) ?></li>
+                    <li class="list__forsale">🏡 Te koop: <?= $villaDetail->forsale ? 'Ja' : 'Nee' ?></li>
                 </ul>
             <br>
            </div>
@@ -81,7 +81,7 @@ if (!$villaDetail) {
             <ul class="villas-details__eigenschappen list">
                 <?php if (!empty($villaEigenschappen)): ?>
                     <?php foreach ($villaEigenschappen as $eigenschap): ?>
-                        <li class="list__eigenschappen"><?= htmlspecialchars($eigenschap->name) ?></li>
+                        <li class="list__eigenschappen"><?= htmlspecialchars($eigenschap['name']) ?></li>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <li>Geen eigenschappen beschikbaar</li>
@@ -91,19 +91,19 @@ if (!$villaDetail) {
             <ul class="villa-details__options list">
                 <?php if (!empty($villaOpties)): ?>
                     <?php foreach ($villaOpties as $optie): ?>
-                        <li class="list__option"><?= htmlspecialchars($optie->name) ?></li>
+                        <li class="list__option"><?= htmlspecialchars($optie['name']) ?></li>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <li>Geen opties beschikbaar</li>
                 <?php endif; ?>
             </ul>
-            <p>€ <?= htmlspecialchars(number_format($villaDetail['price'], 2, ',', '.')) ?></p>
+            <p>€ <?= htmlspecialchars(number_format($villaDetail->price, 2, ',', '.')) ?></p>
             <!-- contact popup -->
             <div>
                 <button id="openModal" class="villa-detail__contact-button">
                     Contacteer ons nu!
                 </button>
-                <a href="/includes/generate_pdf.php?id=<?= $villaDetail['id'] ?>" target="_blank" class="villa-pdf_download-button">
+                <a href="/includes/generate_pdf.php?id=<?= $villaDetail->id ?>" target="_blank" class="villa-pdf_download-button">
                     Download PDF
                  </a>
             </div>
