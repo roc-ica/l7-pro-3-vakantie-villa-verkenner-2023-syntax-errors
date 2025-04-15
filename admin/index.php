@@ -1,5 +1,7 @@
-<?php include '../includes/data.php'; ?>
-<?php Session::CheckSession(); ?>
+<?php
+include '../includes/data.php';
+Session::CheckSession();
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <?php include '../includes/head.php'; ?>
@@ -9,29 +11,9 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_GET['villa'])) {
         if (isset($_POST['add'])) {
-            $villa_id = null;
-            if ($villa->addVilla($_POST['name'], $_POST['price'], $_POST['postal'], $_POST['street'], $_POST['number'], $_POST['desc'])) {
-                $villa_id = $villa->db->pdo->lastInsertId();
-                if (!empty($_POST['eigenschappen'])) {
-                    $villa->addVillaEigenschappen($villa_id, $_POST['eigenschappen']);
-                }
-                if (!empty($_POST['liggingsopties'])) {
-                    $villa->addVillaOpties($villa_id, $_POST['liggingsopties']);
-                }
-            }
+            $villa->addVilla($_POST['name'], $_POST['price'], $_POST['postal'], $_POST['street'], $_POST['number'], $_POST['desc']);
         } elseif (isset($_POST['update']) && isset($_POST['id'])) {
-            if ($villa->updateVilla($_POST['id'], $_POST['name'], $_POST['price'], $_POST['postal'], $_POST['street'], $_POST['number'], $_POST['desc'])) {
-                if (!empty($_POST['eigenschappen'])) {
-                    $villa->addVillaEigenschappen($_POST['id'], $_POST['eigenschappen']);
-                } else {
-                    $villa->addVillaEigenschappen($_POST['id'], []);
-                }
-                if (!empty($_POST['liggingsopties'])) {
-                    $villa->addVillaOpties($_POST['id'], $_POST['liggingsopties']);
-                } else {
-                    $villa->addVillaOpties($_POST['id'], []);
-                }
-            }
+            $villa->updateVilla($_POST['id'], $_POST['name'], $_POST['price'], $_POST['postal'], $_POST['street'], $_POST['number'], $_POST['desc']);
         } elseif (isset($_POST['delete']) && isset($_POST['id'])) {
             $villa->deleteVilla($_POST['id']);
         }
@@ -182,24 +164,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="text" name="number" value="<?= htmlspecialchars($v['number']) ?>">
                         <label>Beschrijving:</label>
                         <textarea name="desc"><?= htmlspecialchars($v['desc']) ?></textarea>
-                        <label>Eigenschappen:</label>
-                        <select name="eigenschappen[]" multiple>
-                            <?php
-                            $selectedEigenschappen = $options->getEigenschappenByVilla($v['id']);
-                            $selectedEigenschapIds = array_map(function($e) { return $e->id; }, $selectedEigenschappen);
-                            foreach ($options->getEigenschappen() as $eigenschap): ?>
-                                <option value="<?= htmlspecialchars($eigenschap->id) ?>" <?= in_array($eigenschap->id, $selectedEigenschapIds) ? 'selected' : '' ?>><?= htmlspecialchars($eigenschap->name) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <label>Liggingsopties:</label>
-                        <select name="liggingsopties[]" multiple>
-                            <?php
-                            $selectedOpties = $liggingsopties->getliggingsoptiesByVilla($v['id']);
-                            $selectedOptieIds = array_map(function($o) { return $o->id; }, $selectedOpties);
-                            foreach ($liggingsopties->getLiggingsopties() as $optie): ?>
-                                <option value="<?= htmlspecialchars($optie->id) ?>" <?= in_array($optie->id, $selectedOptieIds) ? 'selected' : '' ?>><?= htmlspecialchars($optie->name) ?></option>
-                            <?php endforeach; ?>
-                        </select>
                         <button type="submit" name="update">Update</button>
                         <button type="submit" name="delete" onclick="return confirm('Weet je zeker dat je deze villa wilt verwijderen?')">Delete</button>
                     </form>
@@ -223,18 +187,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="text" name="number" required>
                 <label>Beschrijving:</label>
                 <textarea name="desc" required></textarea>
-                <label>Eigenschappen:</label>
-                <select name="eigenschappen[]" multiple>
-                    <?php foreach ($options->getEigenschappen() as $eigenschap): ?>
-                        <option value="<?= htmlspecialchars($eigenschap->id) ?>"><?= htmlspecialchars($eigenschap->name) ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <label>Liggingsopties:</label>
-                <select name="liggingsopties[]" multiple>
-                    <?php foreach ($liggingsopties->getLiggingsopties() as $optie): ?>
-                        <option value="<?= htmlspecialchars($optie->id) ?>"><?= htmlspecialchars($optie->name) ?></option>
-                    <?php endforeach; ?>
-                </select>
                 <button type="submit" name="add">Toevoegen</button>
             </form>
                 <a href="/admin">Terug naar overzicht</a>
