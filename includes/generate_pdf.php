@@ -1,11 +1,11 @@
 <?php
-require_once('vendor/autoload.php'); // TCPDF via Composer
+require_once __DIR__ . '/../vendor/autoload.php'; // TCPDF via Composer
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/data.php';
 
 $id = $_GET['id'];
 $villaDetail = $villa->getVilla($id);
-$villaImages = $villa->getVillaImages($id);
+$villaImage = $villa->getPrimaryImage($id);
 $villaEigenschappen = $options->getEigenschappenByVilla($id);
 $villaOpties = $liggingsopties->getLiggingsoptiesByVilla($id);
 
@@ -13,10 +13,8 @@ if (!$villaDetail) {
     die("Villa niet gevonden.");
 }
 
-// Zoek de banner afbeelding
-$primaryImage = array_filter($villaImages, fn($img) => $img["primary"] == 1);
-$primaryImage = reset($primaryImage);
-$bannerPath = $primaryImage ? 'assets/img/villa/' . $primaryImage['image'] : null;
+// Banner pad
+$bannerPath = $_SERVER['DOCUMENT_ROOT'] . '/assets/img/villa/' . $villaImage;
 
 // Maak nieuwe PDF aan
 $pdf = new \TCPDF();

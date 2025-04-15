@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="/assets/css/sections/villa_detail.css">
 <link rel="stylesheet" href="/assets/css/sections/banner.css">
 <link rel="stylesheet" href="/assets/css/sections/navigation.css">
+<link rel="stylesheet" href="/assets/css/sections/contact.css">
 <!--<link rel="stylesheet" href="/assets/css/sections/footer.css">--> <!--komt later-->
 
 <!--links for the components-->

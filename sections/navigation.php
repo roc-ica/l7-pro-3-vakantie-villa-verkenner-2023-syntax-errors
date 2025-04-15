@@ -14,7 +14,6 @@
             <ul class="navigation__list">
                 <li class="navigation__item"><a class="navigation__link" <?php if ($currentPage == 'index' || $currentPage == '') echo $active; ?> href="../index.php">Home</a></li>
                 <li class="navigation__item"><a class="navigation__link" <?php if ($currentPage == 'villa') echo $active; ?> href="../villa.php">Villas</a></li>
-                <li class="navigation__item"><a class="navigation__link" <?php if ($currentPage == 'contact') echo $active; ?> href="#">Contact</a></li>
             </ul>
         </nav>
     </div>
