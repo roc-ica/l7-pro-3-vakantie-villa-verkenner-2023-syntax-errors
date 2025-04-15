@@ -1,5 +1,5 @@
 <?php
-require_once('vendor/autoload.php'); // TCPDF via Composer
+require_once __DIR__ . '/../vendor/autoload.php'; // TCPDF via Composer
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/includes/data.php';
 
