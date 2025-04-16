@@ -38,11 +38,7 @@ class Liggingsopties
         foreach ($opties as $optie) {
             $stmt = $this->db->pdo->prepare($sql2);
             $stmt->execute(['id' => $optie->{'ligging.id'}]);
-            $row = $stmt->fetch();  // Dit geeft een stdClass-object
-            if ($row) {
-                // Voeg nu enkel de id toe in plaats van het volledige object
-                $result[] = $row->id;
-            }
+            $result[] = $stmt->fetch();
         }
         return $result;
     }
