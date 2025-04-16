@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: subgrid;
   gap: 2rem;
-  margin-block-start: 15vw;
   background-color: #f9f9f9;
   border-radius: 0.5rem;
 
@@ -12,6 +11,7 @@
     grid-template-columns: subgrid;
     grid-column: 2/-2;
     gap: 1.5rem;
+    margin-block: 5vh;
 
     h2 {
       grid-column: 1 / -1;

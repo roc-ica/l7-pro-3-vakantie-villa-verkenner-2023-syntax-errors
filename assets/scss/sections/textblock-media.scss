@@ -11,6 +11,7 @@
     display: grid;
     grid-column: 2/-2;
     grid-template-columns: subgrid;
+    margin-block: 5vh
   }
 
   &__heading {
