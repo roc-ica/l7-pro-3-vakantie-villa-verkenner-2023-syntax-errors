@@ -28,7 +28,6 @@ if (!$villaDetail) {
                 <?php endif; ?>
             </div>
 
-            <!-- Thumbnail Slider Container -->
             <div class="villa-detail__image-thumbnail-wrapper">
                 <div id="villa-detail_thumbnail" class="villa-detail__image-thumbnail">
                     <?php foreach ($thumbnailImages as $image): ?>
@@ -37,10 +36,9 @@ if (!$villaDetail) {
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <!-- Navigation Controls -->
-                <div class="slider-controls">
-                    <button id="prev" class="slider-control slider-control--prev">Prev</button>
-                    <button id="next" class="slider-control slider-control--next">Next</button>
+                <div class="villa-detail__slider slider-controls">
+                    <button id="prev" class="slider-controls-prev">Prev</button>
+                    <button id="next" class="slider-controls-next">Next</button>
                 </div>
             </div>
         </div>
@@ -97,11 +95,11 @@ if (!$villaDetail) {
                 <?php endif; ?>
             </ul>
             <p>€ <?= htmlspecialchars(number_format($villaDetail->price ?? 0, 2, ',', '.')) ?></p>
-            <div>
+            <div class="villa-detail__buttons">
                 <button id="openModal" class="villa-detail__contact-button">
                     Contacteer ons nu!
                 </button>
-                <a href="/includes/generate_pdf.php?id=<?= htmlspecialchars($villaDetail->id ?? '') ?>" target="_blank" class="villa-pdf_download-button">
+                <a href="/includes/generate_pdf.php?id=<?= htmlspecialchars($villaDetail->id ?? '') ?>" target="_blank" class="villa-detail__pdf-button">
                     Download PDF
                 </a>
             </div>
