@@ -22,8 +22,8 @@ Session::CheckSession();
                 <?php foreach ($eigenschappen as $eigenschap) : ?>
                     <tr>
                         <td><?= $eigenschap->name ?></td>
-                        <td><a href="eigenschap_actions.php?id=<?= $eigenschap->id ?>">Bewerken</a></td>
-                        <td><a href="eigenschap_actions.php?id=<?= $eigenschap->id ?>&delete">Verwijderen</a></td>
+                        <td><a href="eigenschappen_actions.php?id=<?= $eigenschap->id ?>">Bewerken</a></td>
+                        <td><a href="eigenschappen_actions.php?id=<?= $eigenschap->id ?>&delete">Verwijderen</a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
