@@ -13,7 +13,7 @@
   grid-column: 1/-1;
   grid-row: 1;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 @media (min-width: 39.375rem) {
   .textblock-media__heading {
@@ -31,6 +31,14 @@
 @media (min-width: 75rem) {
   .textblock-media__heading {
     grid-column: 1/-7;
+  }
+}
+.textblock-media__heading h1 {
+  inline-size: 35rem;
+}
+@media (min-width: 67.5rem) {
+  .textblock-media__heading h1 {
+    inline-size: 100%;
   }
 }
 .textblock-media__content {
