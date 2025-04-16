@@ -18,7 +18,12 @@
   font-size: 1.75rem;
   font-weight: bold;
   color: #333;
-  text-align: center;
+  text-align: start;
+}
+@media (min-width: 45rem) {
+  .contact__container h2 {
+    grid-column: 2/-2;
+  }
 }
 @media (min-width: 57.5rem) {
   .contact__container h2 {
