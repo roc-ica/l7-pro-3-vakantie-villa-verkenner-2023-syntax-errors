@@ -42,5 +42,19 @@ class Eigenschappen {
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->execute(['name' => $name]);
     }
-    
+
+    public function updateEigenschap($id, $name) {
+        $sql = "UPDATE eigenschappen SET name = :name WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        return $stmt->execute([
+            'id' => $id,
+            'name' => $name
+        ]);
+    }
+
+    public function deleteEigenschap($id) {
+        $sql = "DELETE FROM eigenschappen WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        return $stmt->execute(['id' => $id]);
+    }
 }
