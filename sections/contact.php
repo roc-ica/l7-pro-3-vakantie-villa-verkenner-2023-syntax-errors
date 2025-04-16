@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="contact__wrapper">
             <?php if (!empty($message)) echo $message; // Display the message 
             ?>
-            <form action="" method="post" class="contact__form forms">
+            <form action="bedankt.php" method="post" class="contact__form forms">
                 <input type="hidden" name="villa" value="0"> <!-- Hidden input for villa_id -->
 
                 <label class="forms__name" for="name">Naam</label>
