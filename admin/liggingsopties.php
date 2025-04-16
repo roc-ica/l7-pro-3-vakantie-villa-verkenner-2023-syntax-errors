@@ -22,13 +22,13 @@ Session::CheckSession();
                 <?php foreach ($eigenschappen as $options) : ?>
                     <tr>
                         <td><?= $options->name ?></td>
-                        <td><a href="liggingsoptions_actions.php?id=<?= $options->id ?>">Bewerken</a></td>
-                        <td><a href="liggingsoptions_actions.php?id=<?= $options->id ?>&delete">Verwijderen</a></td>
+                        <td><a href="liggingsopties_actions.php?id=<?= $options->id ?>">Bewerken</a></td>
+                        <td><a href="liggingsopties_actions.php?id=<?= $options->id ?>&delete">Verwijderen</a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <form action="liggingsoptions_actions.php" method="POST">
+        <form action="liggingsopties_actions.php" method="POST">
             <button type="submit">Toevoegen</button>
         </form>
     </section>
