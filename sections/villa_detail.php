@@ -30,14 +30,14 @@ if (!$villaDetail) {
     $primaryImage = array_filter($villaImages, fn($img) => isset($img['primary']) && $img['primary'] == 1);
     $primaryImage = reset($primaryImage);
     $thumbnailImages = array_filter($villaImages, fn($img) => isset($img['primary']) && $img['primary'] == 0);
-    ?>
+?>
 
     <section class="villa-detail">
         <div class="villa-detail__images">
             <div class="villa-detail__image-primary">
                 <?php if ($primaryImage && isset($primaryImage['image'])): ?>
                     <img src="assets/img/villa/<?= htmlspecialchars($primaryImage['image']) ?>"
-                         alt="<?= htmlspecialchars($villaDetail['name'] ?? '') ?>">
+                        alt="<?= htmlspecialchars($villaDetail['name'] ?? '') ?>">
                 <?php else: ?>
                     <p>Geen afbeelding beschikbaar</p>
                 <?php endif; ?>
@@ -49,7 +49,7 @@ if (!$villaDetail) {
                     <?php foreach ($thumbnailImages as $image): ?>
                         <div class="villa-detail__each-image">
                             <img src="assets/img/villa/<?= htmlspecialchars($image['image'] ?? '') ?>"
-                                 alt="Villa Image">
+                                alt="Villa Image">
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -62,12 +62,14 @@ if (!$villaDetail) {
         </div>
 
         <?php
-        $message = "";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $naam = htmlspecialchars(trim($_POST['naam']));
             $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-            $villa_id = intval($_POST['villa'] ?? 0);
+            $villa_id = intval($_POST['villa'] ?? 0); // Get the villa ID from the form
             $vraag = htmlspecialchars(trim($_POST['vraag'] ?? ''));
+
+            // Debugging: Log the form data
+            error_log("Naam: $naam, Email: $email, Villa ID: $villa_id, Vraag: $vraag");
 
             if (!empty($naam) && filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($vraag)) {
                 if ($contact->addContact($naam, $email, $villa_id, $vraag)) {
@@ -82,7 +84,7 @@ if (!$villaDetail) {
         ?>
 
         <div class="villa-detail__details">
-           <div class="villas-detail__villa-general">
+            <div class="villas-detail__villa-general">
                 <h1 class="villas-details__villa-name"><?= htmlspecialchars($villaDetail['name'] ?? '') ?></h1>
                 <p class="villas-details__villa-description"><?= htmlspecialchars($villaDetail['desc'] ?? '') ?></p>
                 <ul class="villa-detail__villa-list list">
@@ -90,8 +92,8 @@ if (!$villaDetail) {
                     <li class="list__price">💰 €<?= htmlspecialchars(number_format($villaDetail['price'] ?? 0, 2, ',', '.')) ?></li>
                     <li class="list__forsale">🏡 Te koop: <?= !empty($villaDetail['forsale']) ? 'Ja' : 'Nee' ?></li>
                 </ul>
-            <br>
-           </div>
+                <br>
+            </div>
             <ul class="villas-details__eigenschappen list">
                 <?php if (!empty($villaEigenschappen)): ?>
                     <?php foreach ($villaEigenschappen as $eigenschap): ?>
@@ -117,7 +119,7 @@ if (!$villaDetail) {
                 </button>
                 <a href="/includes/generate_pdf.php?id=<?= htmlspecialchars($villaDetail['id'] ?? '') ?>" target="_blank" class="villa-pdf_download-button">
                     Download PDF
-                 </a>
+                </a>
             </div>
         </div>
 
@@ -133,9 +135,10 @@ if (!$villaDetail) {
                 </p>
                 <?php if (!empty($message)) echo $message; ?>
                 <form action="" method="POST" class="modal-overlay__form">
+                    <input type="hidden" name="villa" value="<?= htmlspecialchars($_GET['id'] ?? 0) ?>">
+                    <p class="modal-overlay__villa-id">Villa ID: <?= htmlspecialchars($_GET['id'] ?? '') ?></p>
                     <input type="text" name="naam" placeholder="Name *" class="modal-overlay__form-input" required>
                     <input type="email" name="email" placeholder="Email*" class="modal-overlay__form-input" required>
-                    <p class="modal-overlay__villa-id">Villa ID: <?= htmlspecialchars($_GET['id'] ?? '') ?></p>
                     <textarea name="vraag" placeholder="Your question*" class="modal-overlay__form-textarea" required></textarea>
                     <button type="submit" class="modal-overlay__form-button">Send</button>
                 </form>
