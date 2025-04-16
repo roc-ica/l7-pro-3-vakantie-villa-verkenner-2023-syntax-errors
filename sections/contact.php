@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($naam) && filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($vraag)) {
         if ($contact->addContact($naam, $email, $villa_id, $vraag)) {
-            $message = "<p class='p-3 bg-green-100 text-green-700 rounded'>Bedankt voor je bericht! We nemen snel contact op.</p>";
+            // $message = "<p>Bedankt voor je bericht! We nemen snel contact op.</p>";
         } else {
             $message = "<p class='p-3 bg-red-100 text-red-700 rounded'>Er is iets misgegaan. Probeer het opnieuw.</p>";
         }
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="contact__wrapper">
             <?php if (!empty($message)) echo $message; // Display the message 
             ?>
-            <form action="bedankt.php" method="post" class="contact__form forms">
+            <form action="" method="post" class="contact__form forms">
                 <input type="hidden" name="villa" value="0"> <!-- Hidden input for villa_id -->
 
                 <label class="forms__name" for="name">Naam</label>
