@@ -2,9 +2,7 @@
 
 <?php if (!isset($_GET['id'])): ?>
     <?php 
-    // Optioneel: haal alle villa's op zonder filters
-    $villas = $villa->getVillas(); 
-
+    // Fetch all villas and filters
     $filters = [
         'name'          => $_GET['name'] ?? null,
         'min_price'     => $_GET['min_price'] ?? null,
@@ -14,25 +12,46 @@
     ];
 
     $villas = $villa->getVillas($filters);
+
+    // Fetch liggingsopties and eigenschappen dynamically
+    $liggingsoptiesClass = new Liggingsopties();
+    $liggingsopties = $liggingsoptiesClass->getLiggingsopties();
+
+    $eigenschappenClass = new Eigenschappen();
+    $eigenschappen = $eigenschappenClass->getEigenschappen();
     ?>
     <section class="all-villas">
         <form method="GET" action="villa.php" class="all-villas__form-filters">
+            <!-- Dynamic Ligging Options -->
             <fieldset class="all-villas__fieldset-liggings">
                 <legend class="all-villas__legend">Ligging</legend>
-                <label><input type="checkbox" name="liggingsoptie[]" value="1" <?= (isset($_GET['liggingsoptie']) && in_array(1, $_GET['liggingsoptie'])) ? 'checked' : '' ?> class="all-villas__input"> Dicht bij een bos</label><br>
-                <label><input type="checkbox" name="liggingsoptie[]" value="2" <?= (isset($_GET['liggingsoptie']) && in_array(2, $_GET['liggingsoptie'])) ? 'checked' : '' ?> class="all-villas__input"> Dicht bij een stad</label><br>
-                <label><input type="checkbox" name="liggingsoptie[]" value="3" <?= (isset($_GET['liggingsoptie']) && in_array(3, $_GET['liggingsoptie'])) ? 'checked' : '' ?> class="all-villas__input"> Dicht bij de zee</label><br>
-                <label><input type="checkbox" name="liggingsoptie[]" value="4" <?= (isset($_GET['liggingsoptie']) && in_array(4, $_GET['liggingsoptie'])) ? 'checked' : '' ?> class="all-villas__input"> In het heuvelland</label><br>
-                <label><input type="checkbox" name="liggingsoptie[]" value="5" <?= (isset($_GET['liggingsoptie']) && in_array(5, $_GET['liggingsoptie'])) ? 'checked' : '' ?> class="all-villas__input"> Aan het water</label>
+                <?php foreach ($liggingsopties as $ligging): ?>
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="liggingsoptie[]" 
+                            value="<?= htmlspecialchars($ligging->id) ?>" 
+                            <?= (isset($_GET['liggingsoptie']) && in_array($ligging->id, $_GET['liggingsoptie'])) ? 'checked' : '' ?> 
+                            class="all-villas__input">
+                        <?= htmlspecialchars($ligging->name) ?>
+                    </label><br>
+                <?php endforeach; ?>
             </fieldset>
 
+            <!-- Dynamic Eigenschappen -->
             <fieldset class="all-villas__fieldset-eigenschappen">
                 <legend>Eigenschappen</legend>
-                <label><input type="checkbox" name="eigenschap[]" value="1" <?= (isset($_GET['eigenschap']) && in_array(1, $_GET['eigenschap'])) ? 'checked' : '' ?> class="all-villas__input"> Inclusief overname inventaris</label><br>
-                <label><input type="checkbox" name="eigenschap[]" value="2" <?= (isset($_GET['eigenschap']) && in_array(2, $_GET['eigenschap'])) ? 'checked' : '' ?> class="all-villas__input"> Zwembad</label><br>
-                <label><input type="checkbox" name="eigenschap[]" value="3" <?= (isset($_GET['eigenschap']) && in_array(3, $_GET['eigenschap'])) ? 'checked' : '' ?> class="all-villas__input"> Winkel(s) in de buurt</label><br>
-                <label><input type="checkbox" name="eigenschap[]" value="4" <?= (isset($_GET['eigenschap']) && in_array(4, $_GET['eigenschap'])) ? 'checked' : '' ?> class="all-villas__input"> Entertainment in de buurt</label><br>
-                <label><input type="checkbox" name="eigenschap[]" value="5" <?= (isset($_GET['eigenschap']) && in_array(5, $_GET['eigenschap'])) ? 'checked' : '' ?> class="all-villas__input"> Op een privépark</label>
+                <?php foreach ($eigenschappen as $eigenschap): ?>
+                    <label>
+                        <input 
+                            type="checkbox" 
+                            name="eigenschap[]" 
+                            value="<?= htmlspecialchars($eigenschap->id) ?>" 
+                            <?= (isset($_GET['eigenschap']) && in_array($eigenschap->id, $_GET['eigenschap'])) ? 'checked' : '' ?> 
+                            class="all-villas__input">
+                        <?= htmlspecialchars($eigenschap->name) ?>
+                    </label><br>
+                <?php endforeach; ?>
             </fieldset>
 
             <button type="submit" class="all-villas__button --primary">Zoeken</button>
