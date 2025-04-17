@@ -222,4 +222,11 @@ class Villas
         $stmt->execute(['id' => $image_id]);
     }
 
+    public function changeForSale($id) 
+    {
+        $sql = "UPDATE villa SET forsale = NOT forsale WHERE id = :id";
+        $stmt = $this->db->pdo->prepare($sql);
+        return $stmt->execute(['id' => $id]);
+    }
+
 }
