@@ -43,6 +43,7 @@
                 <div class="all-villas__price-setting">
                     <input type="number" name="min_price" placeholder="Min. prijs" value="<?= htmlspecialchars($_GET['min_price'] ?? '') ?>" class="all-villas__input">
                     <input type="number" name="max_price" placeholder="Max. prijs" value="<?= htmlspecialchars($_GET['max_price'] ?? '') ?>" class="all-villas__input">
+                    <button type="submit" class="all-villas__button --primary">Zoeken</button>
                 </div>
             </form>
             <div class="all-villas__items">
