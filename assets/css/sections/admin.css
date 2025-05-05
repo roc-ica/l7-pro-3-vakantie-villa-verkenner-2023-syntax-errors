@@ -1,0 +1,167 @@
+.villadmin {
+    --primary-color: #DA251D;
+    --primary-color-light: #34495e;
+    --secondary-color: #ecf0f1;
+    --accent-color: #3498db;
+    --text-color: #2c3e50;
+    --bg-color: #f5f7fa;
+    --border-color: #dcdfe3;
+    --border-radius: 4px;
+    --transition-speed: 0.3s;
+}
+
+/* Body en layout */
+body.villadmin {
+    display: flex;
+    min-height: 100vh;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+}
+
+/* Content sectie naast sidebar */
+.villadmin section.content {
+    flex: 1;
+    padding: 2rem;
+    background: var(--secondary-color);
+    overflow-y: auto;
+}
+
+/* Koppen */
+.villadmin section.content h1,
+.villadmin section.content h2,
+.villadmin section.content h3,
+.villadmin section.content h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.villadmin section.content h1 { font-size: 2rem; }
+.villadmin section.content h2 { font-size: 1.75rem; }
+.villadmin section.content h3 { font-size: 1.5rem; }
+.villadmin section.content h4 { font-size: 1.25rem; }
+
+/* Formulieren */
+.villadmin section.content form {
+    background: #fff;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+.villadmin section.content input[type="text"],
+.villadmin section.content input[type="number"],
+.villadmin section.content input[type="email"],
+.villadmin section.content input[type="file"],
+.villadmin section.content textarea,
+.villadmin section.content select {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed) ease;
+}
+.villadmin section.content input:focus,
+.villadmin section.content textarea:focus,
+.villadmin section.content select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Label styling */
+.villadmin section.content label {
+    font-weight: 500;
+}
+
+/* Checkbox en radio */
+.villadmin section.content input[type="checkbox"],
+.villadmin section.content input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+/* Buttons */
+.villadmin section a {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: background-color var(--transition-speed) ease;
+    display: inline-block;
+    margin: 0.5rem 0;
+}
+
+.villadmin section.content button,
+.villadmin section.content input[type="submit"] {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+    margin-top: 0.5rem;
+}
+.villadmin section.content button:hover,
+.villadmin section.content input[type="submit"]:hover {
+    background-color: var(--primary-color-light);
+}
+
+/* Tabellen */
+.villadmin section.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+.villadmin section.content table thead {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.villadmin section.content table th,
+.villadmin section.content table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+.villadmin section.content table tbody tr:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Afbeeldingen in content */
+.villadmin section.content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+}
+
+/* Form sectie voor bestaande afbeeldingen */
+.villadmin section.content .image-block {
+    display: inline-block;
+    margin: 0.5rem;
+    text-align: center;
+}
+.villadmin section.content .image-block img {
+    border: 1px solid var(--border-color);
+}
+
+/* Responsive aanpassingen */
+@media (max-width: 768px) {
+    body.villadmin {
+        flex-direction: column;
+    }
+    .villadmin section.content {
+        padding: 1rem;
+    }
+}

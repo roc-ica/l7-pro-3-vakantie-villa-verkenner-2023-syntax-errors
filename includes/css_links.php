@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/assets/css/sections/navigation.css">
 <link rel="stylesheet" href="/assets/css/sections/contact.css">
 <link rel="stylesheet" href="/assets/css/sections/footer.css">
+<link rel="stylesheet" href="/assets/css/sections/admin.css">
 
 <!--links for the components-->
 <link rel="stylesheet" href="/assets/css/components/buttons.css">

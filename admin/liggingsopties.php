@@ -15,6 +15,7 @@ Session::CheckSession();
                 <tr>
                     <th>Naam</th>
                     <th>Acties</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

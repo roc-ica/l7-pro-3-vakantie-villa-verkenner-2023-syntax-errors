@@ -18,6 +18,8 @@ Session::CheckSession();
                     <th>Prijs</th>
                     <th>Locatie</th>
                     <th>Acties</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +30,7 @@ Session::CheckSession();
                         <td><?= $villa->postal . ' ' . $villa->number ?></td>
                         <td><a href="villa_actions.php?id=<?= $villa->id ?>">Bewerken</a></td>
                         <td><a href="villa_actions.php?id=<?= $villa->id ?>&delete">Verwijderen</a></td>
+                        <td><a href="villa_actions.php?id=<?= $villa->id ?>&forsale"><?= $villa->forsale ? 'Tekoop' : 'Verkocht' ?></a></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

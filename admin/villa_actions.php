@@ -9,6 +9,12 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
+if (isset($_GET['forsale'])) {
+    $villa->changeForSale($_GET['id']);
+    header('Location: /admin/');
+    exit;
+}
+
 if (isset($_POST['add'])) {
     $villa->addVilla($_POST, $_FILES);
     header('Location: /admin/');
