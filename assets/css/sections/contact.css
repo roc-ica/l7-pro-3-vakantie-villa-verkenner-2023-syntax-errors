@@ -101,7 +101,7 @@
   font-weight: var(700);
 }
 .contact__container p {
-  grid-column: 1/-1;
+  grid-column: 1/-8;
   grid-row: 2;
   margin: 0;
 }
@@ -133,7 +133,8 @@
 .contact__form.forms input,
 .contact__form.forms textarea {
   grid-column: 1/-1;
-  block-size: var(--space-xl, 2rem);
+  block-size: 1rem;
+  padding: 1rem;
 }
 .contact__form.forms .buttons {
   display: flex;
@@ -141,11 +142,12 @@
   grid-column: 1/-1;
   block-size: var(--button-height, 2rem);
   border-radius: var(--radius-sm);
-  transition: var(--transition-medium) background-color ease-in-out, var(--transition-medium) border-color ease-in-out, var(--transition-medium) box-shadow ease-in-out;
+  transition: background-color var(--transition-medium) ease, transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
 }
 .contact__form.forms .buttons:hover {
-  background: var(--color-primary-hover);
-  font-size: var(--font-size-sm);
+  background-color: var(--color-secondary-hover);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
 }
 .contact__form.forms .buttons__content {
   inline-size: 100%;
@@ -153,8 +155,15 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: var(--color-primary-default);
+  background-color: var(--color-primary-default);
   color: var(--color-text-primary);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-medium) ease, transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+}
+.contact__form.forms .buttons__content:hover {
+  background-color: var(--color-secondary-hover);
+  transform: scale(1.01);
+  box-shadow: var(--shadow-md);
 }
 .contact__info {
   display: grid;

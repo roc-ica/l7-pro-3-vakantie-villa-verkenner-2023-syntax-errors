@@ -67,16 +67,18 @@
       .buttons {
         display: flex;
         justify-content: center;
-        inline-size: var(--button-width, 11rem);
-        block-size: var(--button-height, 3rem);
+        inline-size: 10rem;
+        block-size: 3rem;
         background: var(--color-primary-default);
         color: var(--color-text-primary);
         border-radius: var(--radius-sm);
-        transition: var(--transition-medium) background-color ease-in-out, var(--transition-medium) border-color ease-in-out, var(--transition-medium) box-shadow ease-in-out;
+        transition: var(--transition-slow) background-color ease-in-out, var(--transition-medium) border-color ease-in-out, var(--transition-medium) box-shadow ease-in-out;
+        font-size: var(--font-size-sm);
 
         &:hover {
-          background: var(--color-primary-hover);
-          font-size: var(--font-size-sm);
+          background-color: var(--color-secondary-hover);
+          transform: scale(1.05);
+          box-shadow: var(--shadow-md);
         }
 
         &__content {

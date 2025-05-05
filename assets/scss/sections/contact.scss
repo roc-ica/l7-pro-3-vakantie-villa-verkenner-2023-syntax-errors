@@ -44,7 +44,7 @@
     }
 
     p{
-      grid-column: 1 / -1;
+      grid-column: 1 / -8;
       grid-row: 2;
       margin: 0;
     }
@@ -77,8 +77,9 @@
       label,
       input,
       textarea {
-        grid-column: 1 / -1;
-        block-size: var(--space-xl, 2rem);
+        grid-column: 1/-1;
+        block-size: 1rem;
+        padding: 1rem;
       }
 
       .buttons {
@@ -87,11 +88,11 @@
           grid-column: 1 / -1;
           block-size: var(--button-height, 2rem);
           border-radius: var(--radius-sm);
-          transition: var(--transition-medium) background-color ease-in-out, var(--transition-medium) border-color ease-in-out, var(--transition-medium) box-shadow ease-in-out;
-
+          transition: background-color var(--transition-medium) ease, transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
           &:hover {
-            background: var(--color-primary-hover);
-            font-size: var(--font-size-sm);
+            background-color: var(--color-secondary-hover);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
           }
 
           &__content {
@@ -100,8 +101,15 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            background: var(--color-primary-default);
+            background-color: var(--color-primary-default);
             color: var(--color-text-primary);
+            border-radius: var(--radius-sm);
+            transition: background-color var(--transition-medium) ease, transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+            &:hover {
+              background-color: var(--color-secondary-hover);
+              transform: scale(1.01);
+              box-shadow: var(--shadow-md);
+            }
 
           }
       }
