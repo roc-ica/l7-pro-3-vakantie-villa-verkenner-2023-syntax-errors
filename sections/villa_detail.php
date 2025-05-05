@@ -98,14 +98,16 @@ if (!$villaDetail) {
                     <li>Geen opties beschikbaar</li>
                 <?php endif; ?>
             </ul>
-            <p>€ <?= htmlspecialchars(number_format($villaDetail->price ?? 0, 2, ',', '.')) ?></p>
-            <div class="villa-detail__buttons">
-                <button id="openModal" class="villa-detail__contact-button">
-                    Contacteer ons nu!
-                </button>
-                <a href="/includes/generate_pdf.php?id=<?= htmlspecialchars($villaDetail->id ?? '') ?>" target="_blank" class="villa-detail__pdf-button">
-                    Download PDF
-                </a>
+            <div class="villa-detail__checkout">
+                <p>€ <?= htmlspecialchars(number_format($villaDetail->price ?? 0, 2, ',', '.')) ?></p>
+                <div class="villa-detail__buttons">
+                    <button id="openModal" class="villa-detail__contact-button">
+                        Contacteer ons nu!
+                    </button>
+                    <a href="/includes/generate_pdf.php?id=<?= htmlspecialchars($villaDetail->id ?? '') ?>" target="_blank" class="villa-detail__pdf-button">
+                        Download PDF
+                    </a>
+                </div>
             </div>
         </div>
 

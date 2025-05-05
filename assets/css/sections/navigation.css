@@ -182,7 +182,7 @@
 }
 .navigation__item {
   display: inline-block;
-  align-self: center;
+  align-self: start;
 }
 .navigation__link {
   color: var(--color-tertiary-inactive);

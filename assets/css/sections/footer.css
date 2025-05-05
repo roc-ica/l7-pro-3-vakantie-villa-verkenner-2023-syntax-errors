@@ -35,7 +35,7 @@
 }
 @media (min-width: 38.125rem) {
   .footer__logo-container {
-    grid-column: 1/-7;
+    grid-column: 1/-8;
   }
 }
 @media (min-width: 74.375rem) {
@@ -70,7 +70,7 @@
 }
 @media (min-width: 38.125rem) {
   .footer__contact-info {
-    grid-column: 9/-1;
+    grid-column: 8/-1;
   }
 }
 .footer__contact-info .contacts__list {

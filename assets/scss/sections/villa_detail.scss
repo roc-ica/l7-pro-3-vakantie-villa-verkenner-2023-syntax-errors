@@ -3,6 +3,7 @@
   grid-template-columns: subgrid;
   grid-column: 1/-1;
   margin-block-start: 2rem;
+  margin-block-end: 4rem;
 
   &__images {
     grid-column: 2/-2;
@@ -19,8 +20,13 @@
   &__image {
     &-primary {
       grid-column: 1/-1;
-      max-inline-size: 41rem;
-      max-block-size: 24rem;
+      max-inline-size: 100%;
+      max-block-size: 100%;
+      
+      @media (min-width: 40.625rem) {
+        min-inline-size: 25rem;
+        min-block-size: 15.5rem;
+      }
 
       img {
         inline-size: 100%;
@@ -180,6 +186,29 @@
     }
   }
 
+  &__checkout{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    inline-size: 100%;
+
+    @media (min-width: 28.125rem) {
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (min-width: 34.375rem) {
+      justify-content: space-between;
+    }
+
+    p{
+        font-size: 2em;
+        color: #000000;
+        margin: 0;
+    }
+  }
+
 
   .modal-overlay {
     position: fixed;
@@ -292,6 +321,8 @@
       justify-content: unset;
     }
   }
+
+
 
   &__contact-button {
     display: inline-block;
