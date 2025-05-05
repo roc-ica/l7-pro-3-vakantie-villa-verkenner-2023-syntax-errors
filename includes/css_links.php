@@ -18,3 +18,6 @@
 
 <!--js scripts-->
 <script src="/assets/js/navigation.js"></script>
+<script src="/assets/js/filter.js"></script>
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/villa_detail.js"></script>

@@ -46,6 +46,14 @@
   --breakpoint-tablet: 48rem;
   --breakpoint-laptop: 61.25rem;
   --breakpoint-desktop: 112.5rem;
+  --space-5: 1rem;
+  --space-2: 0.5rem;
+  --button-width: 110px;
+  --button-height: 35px;
+  --border-width: 1px;
+  --color-border: #ddd;
+  --block-content-height: 5rem;
+  --font-weight-bold: 700;
 }
 
 /* SCSS Variables & Defaults */

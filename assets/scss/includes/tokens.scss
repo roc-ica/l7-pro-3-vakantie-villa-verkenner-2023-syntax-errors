@@ -57,6 +57,15 @@
   --breakpoint-tablet:  48rem;
   --breakpoint-laptop:  61.25rem;
   --breakpoint-desktop: 112.5rem;
+
+  --space-5: 1rem;
+  --space-2: 0.5rem;
+  --button-width: 110px;
+  --button-height: 35px;
+  --border-width: 1px;
+  --color-border: #ddd;
+  --block-content-height: 5rem;
+  --font-weight-bold: 700;
 }
 
 /* SCSS Variables & Defaults */
@@ -92,3 +101,5 @@ $z-index-fixed:    1030 !default;
 $z-index-modal:    1040 !default;
 $z-index-popover:  1050 !default;
 $z-index-tooltip:  1060 !default;
+
+
