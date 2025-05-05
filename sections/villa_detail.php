@@ -37,8 +37,12 @@ if (!$villaDetail) {
                     <?php endforeach; ?>
                 </div>
                 <div class="villa-detail__slider slider-controls">
-                    <button id="prev" class="slider-controls-prev">Prev</button>
-                    <button id="next" class="slider-controls-next">Next</button>
+                   <button id="prev" aria-label="Previous">
+                        <img src="../assets/img/svg/previous.svg" alt="Previous">
+                    </button>
+                    <button id="next" aria-label="Next">
+                        <img src="../assets/img/svg/next.svg" alt="Next">
+                    </button>
                 </div>
             </div>
         </div>
@@ -67,8 +71,8 @@ if (!$villaDetail) {
 
         <div class="villa-detail__details">
             <div class="villas-detail__villa-general">
-                <h1 class="villas-details__villa-name"><?= htmlspecialchars($villaDetail->name ?? '') ?></h1>
-                <p class="villas-details__villa-description"><?= htmlspecialchars($villaDetail->desc ?? '') ?></p>
+                <h1 class="villa-details__villa-name"><?= htmlspecialchars($villaDetail->name ?? '') ?></h1>
+                <p class="villa-details__villa-description"><?= htmlspecialchars($villaDetail->desc ?? '') ?></p>
                 <ul class="villa-detail__villa-list list">
                     <li class="list__street">📍 <?= htmlspecialchars(($villaDetail->street ?? '') . ' ' . ($villaDetail->number ?? '')) ?></li>
                     <li class="list__price">💰 €<?= htmlspecialchars(number_format($villaDetail->price ?? 0, 2, ',', '.')) ?></li>
@@ -76,7 +80,7 @@ if (!$villaDetail) {
                 </ul>
                 <br>
             </div>
-            <ul class="villas-details__eigenschappen list">
+            <ul class="villa-detail__eigenschappen list">
                 <?php if (!empty($villaEigenschappen)): ?>
                     <?php foreach ($villaEigenschappen as $eigenschap): ?>
                         <li class="list__eigenschappen"><?= htmlspecialchars($eigenschap->name ?? '') ?></li>
@@ -85,7 +89,7 @@ if (!$villaDetail) {
                     <li>Geen eigenschappen beschikbaar</li>
                 <?php endif; ?>
             </ul>
-            <ul class="villa-details__options list">
+            <ul class="villa-detail__options list">
                 <?php if (!empty($villaOpties)): ?>
                     <?php foreach ($villaOpties as $optie): ?>
                         <li class="list__option"><?= htmlspecialchars($optie->name ?? '') ?></li>

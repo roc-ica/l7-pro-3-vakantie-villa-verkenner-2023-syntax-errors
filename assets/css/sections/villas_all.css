@@ -72,7 +72,7 @@
   background-color: var(--color-bg-light, #f9f9f9);
   margin: var(--space-2, 0.6rem) 0 var(--space-2, 0.5rem);
   border-radius: var(--radius-md, 0.5rem);
-  padding: var(--space-2, 0.5rem);
+  padding: 1rem;
 }
 @media (min-width: 58.125rem) {
   .all-villas__form-filters {
@@ -83,6 +83,9 @@
 }
 .all-villas__form-filters--open {
   display: grid;
+}
+.all-villas__filter-title {
+  margin: 0.5rem 0;
 }
 .all-villas__button {
   color: var(--color-text-primary);
