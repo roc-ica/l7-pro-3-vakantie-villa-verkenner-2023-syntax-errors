@@ -4,12 +4,13 @@
   grid-template-rows: repeat(4, auto);
   grid-template-columns: subgrid;
   background: url(../../img/home-banner.png) no-repeat center center/cover;
-  min-block-size: 30rem;
+  min-block-size: 40rem;
   max-block-size: 90vh;
 }
 .header .header__container {
   display: grid;
   grid-column: 1/-1;
+  grid-row: 1/-1;
   grid-template-columns: subgrid;
 }
 .header .heading {
@@ -71,5 +72,12 @@
   color: #ffffff;
   font-size: 1.25rem;
   padding: 1rem 2rem;
+  text-decoration: none;
+  transition: background-color 0.7s ease-in-out, border-color 0.7s ease-in-out, box-shadow 0.7s ease-in-out;
+}
+.header .heading .button.--primary:hover {
+  background-color: #ffffff;
+  color: #DA251D;
+  font-size: 1.35rem;
   text-decoration: none;
 }

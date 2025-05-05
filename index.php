@@ -9,7 +9,7 @@
         <?php include 'sections/header.php'; ?>
         <?php include 'sections/textblock_media.php'; ?>
         <?php include 'sections/contact.php'; ?>
-        <?php include 'sections/footer.php'; ?>
     </main>
+    <?php include 'sections/footer.php'; ?>
 </body>
 </html>

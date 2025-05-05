@@ -14,4 +14,6 @@
 
     <!-- css -->
     <?php include 'css_links.php' ?>
+    <!-- scss loader -->
+<!--    --><?php //include $_SERVER['DOCUMENT_ROOT'] . '/compilation/should_compile_sass.php';?>
 </head>

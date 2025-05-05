@@ -1,43 +1,52 @@
+@import '../includes/mixins';
+@import '../includes/tokens';
+
 .contact {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
-  gap: 2rem;
-  color: #ffffff;
-  background-image: url("../../img/background_3.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  gap: var(--space-xl, 2rem);
+  color: var(--color-text-secondary);
 
   &__container {
     display: grid;
     grid-template-columns: subgrid;
-    background-color: rgba(39, 142, 245, 0.40);
-    grid-column: 1/-1;
-    gap: 1.5rem;
-    margin-block: 5vh;
-    padding: 1rem;
-    border-radius: 1rem;
-
-    @media (min-width: 38.125rem) {
+    grid-column: 1 / -1;
+    gap: var(--space-lg, 1.5rem);
+    margin-block: var(--space-v-large, 5vh);
+    padding: var(--space-md, 1rem);
+    border-radius: var(--radius-md);
+    @media (min-width: $breakpoint-mobile) {
       grid-column: 2 / -2;
     }
 
-
     h2 {
       grid-column: 1 / -1;
-      font-size: 1.75rem;
-      font-weight: bold;
+      font-size: var(--font-size-lg, 1.75rem);
+      font-weight: var($font-weight-bold);
       text-align: start;
 
-      @media (min-width: 45rem) {
-        grid-column: 2/-2;
+
+      @media (min-width: $breakpoint-tablet) {
+        grid-column: 2 / -2;
       }
 
-      @media (min-width: 57.5rem){
+      @media (min-width: $breakpoint-laptop) {
         grid-column: 1 / -10;
         grid-row: 1;
         text-align: unset;
       }
+
+      span{
+        color: var(--color-text-tertiary);
+        font-weight: var($font-weight-bold);
+      }
+    }
+
+    p{
+      grid-column: 1 / -1;
+      grid-row: 2;
+      margin: 0;
     }
   }
 
@@ -45,7 +54,7 @@
     display: grid;
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
-    gap: 2rem;
+    gap: var(--space-xl, 2rem);
   }
 
   &__form {
@@ -53,30 +62,49 @@
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
     grid-row: 2;
-    gap: 1rem;
+    gap: var(--space-md, 1rem);
 
-    @media (min-width: 45rem){
+    @media (min-width: $breakpoint-tablet) {
       grid-column: 2 / -2;
     }
 
-    @media (min-width: 57.5rem){
+    @media (min-width: $breakpoint-laptop) {
       grid-column: 1 / -8;
       grid-row: 1;
     }
 
-   &.forms {
-     label, input, textarea {
-       grid-column: 1 / -1;
-       block-size: 2rem;
-     }
+    &.forms {
+      label,
+      input,
+      textarea {
+        grid-column: 1 / -1;
+        block-size: var(--space-xl, 2rem);
+      }
 
-     button{
-       grid-column: 1/-8;
+      .buttons {
+          display: flex;
+          justify-content: center;
+          grid-column: 1 / -1;
+          block-size: var(--button-height, 2rem);
+          border-radius: var(--radius-sm);
+          transition: var(--transition-medium) background-color ease-in-out, var(--transition-medium) border-color ease-in-out, var(--transition-medium) box-shadow ease-in-out;
 
-       @media (min-width: 57.5rem){
-         grid-column: 1/-4;
-       }
-     }
+          &:hover {
+            background: var(--color-primary-hover);
+            font-size: var(--font-size-sm);
+          }
+
+          &__content {
+            inline-size: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: var(--color-primary-default);
+            color: var(--color-text-primary);
+
+          }
+      }
     }
   }
 
@@ -85,33 +113,33 @@
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
     grid-row: 1;
-    gap: 1rem;
+    gap: var(--space-md, 1rem);
 
-    @media (min-width: 45rem){
+    @media (min-width: $breakpoint-tablet) {
       grid-column: 2 / -2;
     }
 
-    @media (min-width: 57.5rem){
+    @media (min-width: $breakpoint-laptop) {
       grid-column: 6 / -1;
       grid-row: 1;
     }
 
-    h3{
+    h3 {
       grid-column: 1 / -1;
       margin: 0;
     }
 
-    p{
+    p {
       grid-column: 1 / -1;
       grid-row: 3;
       margin-block-start: 0;
     }
 
-    iframe{
+    iframe {
       grid-column: 1 / -1;
-      width: 100%;
-      height: 300px;
-      border: #000000 solid 2px;
+      width: 98%;
+      height: var(--iframe-height, 300px);
+      border: var(--border-width, 2px) solid var(--color-text-secondary);
     }
   }
 }

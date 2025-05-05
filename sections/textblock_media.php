@@ -9,11 +9,11 @@
                 <p>Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease, with a complete audit trail for every change.</p>
             </div>
             <div class="buttons">
-                <div class="buttons__content">
+                <a class="buttons__content">
                     <p>
                         See for yourself!
                     </p>
-                </div>
+                </a>
             </div>
         </div>
         <div class="textblock-media__media --right --image">

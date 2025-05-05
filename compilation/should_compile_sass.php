@@ -25,11 +25,12 @@ if (!$scss_dir) {
     exit;
 }
 
-// Check if we need to recompile
-if (files_need_recompile($scss_dir)) {
-    // Include compiler script to run compilation
+if ( files_need_recompile($scss_dir) ) {
     include_once __DIR__ . '/compiler_sass.php';
-    echo "SCSS files recompiled.\n";
+    $msg = 'SCSS files recompiled.';
 } else {
-    echo "No changes detected. SCSS is up to date.\n";
+    $msg = 'No changes detected. SCSS is up to date.';
 }
+
+// this injects a JS console.log into your HTML
+echo '<script>console.log(' . json_encode($msg) . ');</script>';

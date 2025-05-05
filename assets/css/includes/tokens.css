@@ -1,32 +1,51 @@
 :root {
-  /* grid-container-tokens */
+  /* CSS Custom Properties */
+  /* Grid Container */
   --container-min-space: 1rem;
   --container-columns: 12;
   --container-width: 83.75rem;
   --container-gutter: 1rem;
-  /* colors */
-  --primary-default: #DA251D;
-  --primary-hover: #A5342F;
-  --primary-inactive: #EB7A75;
-  --secondairy-default: #FFCC00;
-  --secondairy-hover: #C5A527;
-  --secondairy-inactive: #E1D08A;
-  --tertairy-default: #006A4E;
-  --tertairy-hover: #183930;
-  --tertairy-inactive: #4EAC93;
-  --bg-default: #F5E6CC;
-  --bg-white: #FBFBFB;
-  --text-primary: #fff;
-  --text-secondairy: #000;
-  --text-tertairy: #DA251D;
-  /* misc */
-  --border-radius-5: 0.3125rem;
-  --border-radius-10: 0.625rem;
-  --border-radius-15: 0.9375rem;
-  /* typography */
+  /* Colors */
+  --color-primary-default: #DA251D;
+  --color-primary-hover: #A5342F;
+  --color-primary-active: #EB7A75;
+  --color-secondary-default: #FFCC00;
+  --color-secondary-hover: #C5A527;
+  --color-secondary-active: #E1D08A;
+  --color-tertiary-default: #006A4E;
+  --color-tertiary-hover: #183930;
+  --color-tertiary-active: #4EAC93;
+  --color-bg-default: #F5E6CC;
+  --color-bg-light: #FBFBFB;
+  --color-bg-dark: #333333;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #000000;
+  --color-text-tertiary: #DA251D;
+  /* Border Radius */
+  --radius-sm: 0.3125rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.9375rem;
+  /* Typography */
   --font-size-sm: 1rem;
   --font-size-md: 1.5rem;
   --font-size-lg: 2rem;
   --font-size-xl: 2.5rem;
-  /* breakpoints */
+  --line-height-sm: 1.25;
+  --line-height-md: 1.5;
+  --line-height-lg: 1.75;
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-medium: 300ms;
+  --transition-slow: 500ms;
+  /* Breakpoints */
+  --breakpoint-mobile: 30rem;
+  --breakpoint-tablet: 48rem;
+  --breakpoint-laptop: 61.25rem;
+  --breakpoint-desktop: 112.5rem;
 }
+
+/* SCSS Variables & Defaults */
