@@ -25,6 +25,7 @@
       font-size: var(--font-size-lg, 1.75rem);
       font-weight: var($font-weight-bold);
       text-align: start;
+      margin-bottom: 0;
 
 
       @media (min-width: $breakpoint-tablet) {
@@ -44,9 +45,13 @@
     }
 
     p{
-      grid-column: 1 / -8;
+      grid-column: 1 / -1;
       grid-row: 2;
       margin: 0;
+
+      @media (min-width: $breakpoint-tablet) {
+        grid-column: 1 / -8;
+      }
     }
   }
 

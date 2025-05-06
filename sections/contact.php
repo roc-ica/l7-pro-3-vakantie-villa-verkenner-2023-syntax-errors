@@ -22,16 +22,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <section id="contact" class="contact">
     <div class="contact__container">
-        <h2>Get in <span>Touch</span></h2>
+        <h2>Neem <span>contact</span> op</h2>
         <p>Heb je vragen of wil je meer informatie? Neem contact met ons op!</p>
         <div class="contact__wrapper">
             <?php if (!empty($message)) echo $message; // Display the message
             ?>
             <form action="" method="post" class="contact__form forms">
                 <input type="hidden" name="villa" value="0"> <!-- Hidden input for villa_id -->
-                <input class="forms__name-input" type="text" name="naam" id="name" placeholder="Name*" required>
+                <input class="forms__name-input" type="text" name="naam" id="name" placeholder="Naam*" required>
                 <input class="forms__email-input" type="email" name="email" id="email" placeholder="Email*" required>
-                <textarea class="forms__message-input" name="vraag" id="message" rows="5" placeholder="Message*" required></textarea>
+                <textarea class="forms__message-input" name="vraag" id="message" rows="5" placeholder="Bricht*" required></textarea>
                 <div class="buttons">
                     <button class="buttons__content" type="submit">Verstuur</button>
                 </div>

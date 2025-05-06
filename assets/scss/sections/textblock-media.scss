@@ -13,6 +13,7 @@
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
     margin-block: var(--space-v-large, 5vh);
+    padding: var(--space-md, 1rem);
 
     @media (min-width: $breakpoint-mobile) {
       grid-column: 2 / -2;

@@ -94,7 +94,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  grid-column: 4/-9;
+  grid-column: 2/-9;
   grid-row: 1;
   padding-block: var(--space-sm, 0.5rem);
   margin-inline: auto;
@@ -178,6 +178,8 @@
     list-style: none;
     flex-direction: row;
     gap: var(--space-lg, 1rem);
+    justify-content: center;
+    align-self: center;
   }
 }
 .navigation__item {

@@ -82,12 +82,12 @@
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: subgrid;
-    gap: var(--space-5, 1rem);
 
     @media (min-width: 58.125rem) {
       grid-column: 7 / -2;
       padding: var(--space-5, 1rem);
       block-size: max-content;
+      gap: var(--space-5, 1rem);
     }
   }
 
